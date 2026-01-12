@@ -90,6 +90,60 @@
             50% { transform: translateY(20px); }
         }
 
+        /* 네비게이션 바 */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            z-index: 1000;
+            animation: slideDownNav 0.6s ease-out;
+        }
+
+        @keyframes slideDownNav {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid white;
+            transform: scale(1.05);
+        }
+
+        nav a.active {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            border: 2px solid white;
+        }
+
+        .container {
+            margin-top: 70px;
+        }
+
         .scroll-indicator span {
             font-size: 2em;
             color: white;
@@ -331,6 +385,12 @@
     </style>
 </head>
 <body>
+    <nav>
+        <a href="README.md" target="_blank">📄 README</a>
+        <a href="intro.html">🌟 자기소개</a>
+        <a href="portfolio.html" class="active">🎨 포트폴리오</a>
+    </nav>
+
     <div class="container">
         <header>
             <h1>🚀 포트폴리오</h1>
