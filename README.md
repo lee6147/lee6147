@@ -29,29 +29,25 @@
 
 ## 🛠️ 기술 스택
 
-### 💻 프로그래밍 언어
 <div align="center">
 
+### 💻 프로그래밍 언어
 ![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
 ![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)
 
-</div>
+<br/>
 
 ### 🔌 하드웨어 & 개발도구
-<div align="center">
-
 ![Arduino](https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white)
 ![Verilog](https://img.shields.io/badge/Verilog-4B8BBE?style=for-the-badge&logo=v&logoColor=white)
 ![FPGA](https://img.shields.io/badge/FPGA-FF6B6B?style=for-the-badge)
 ![PCB Design](https://img.shields.io/badge/PCB%20Design-0071B5?style=for-the-badge&logo=autodesk&logoColor=white)
 
-</div>
+<br/>
 
 ### 🌐 주요 기술 & 개념
-<div align="center">
-
 ![Embedded Systems](https://img.shields.io/badge/Embedded%20Systems-FF6B6B?style=for-the-badge)
 ![IoT](https://img.shields.io/badge/IoT-00BFFF?style=for-the-badge)
 ![Microcontroller](https://img.shields.io/badge/Microcontroller-4A90E2?style=for-the-badge)
@@ -63,13 +59,17 @@
 
 ## 📊 기술 숙련도
 
-| 기술 | 숙련도 | 경험 |
-|------|-------|------|
-| **C/C++** | ⭐⭐⭐⭐⭐ | 2년 |
-| **Arduino** | ⭐⭐⭐⭐⭐ | 3년 |
-| **FPGA/Verilog** | ⭐⭐⭐⭐ | 1년 |
-| **PCB Design** | ⭐⭐⭐⭐ | 1.5년 |
-| **Python** | ⭐⭐⭐⭐⭐ | 2년 |
+<div align="center">
+
+| 기술 | 숙련도 | 경험 | 진행도 |
+|------|-------|------|--------|
+| **C/C++** | ⭐⭐⭐⭐⭐ | 2년 | ![](https://progress-bar.dev/100/?title=Complete) |
+| **Arduino** | ⭐⭐⭐⭐⭐ | 3년 | ![](https://progress-bar.dev/100/?title=Complete) |
+| **FPGA/Verilog** | ⭐⭐⭐⭐ | 1년 | ![](https://progress-bar.dev/80/?title=Advanced) |
+| **PCB Design** | ⭐⭐⭐⭐ | 1.5년 | ![](https://progress-bar.dev/80/?title=Advanced) |
+| **Python** | ⭐⭐⭐⭐⭐ | 2년 | ![](https://progress-bar.dev/100/?title=Complete) |
+
+</div>
 
 ---
 
@@ -91,26 +91,33 @@
 
 ## 🎨 주요 프로젝트
 
-<details open>
-<summary><b>🌐 자기소개 웹페이지 (intro.html)</b></summary>
+<div align="center">
 
+### 📌 프로젝트 1️⃣
+
+#### 🌐 자기소개 웹페이지 (intro.html)
 ```
-✨ 특징:
-  ▸ 그래디언트 애니메이션 효과
-  ▸ 부드러운 트랜지션 및 호버 효과
-  ▸ 현대적인 Glassmorphism 디자인
-  ▸ 완벽한 모바일 반응형 대응
-  ▸ 인터랙티브 UI 요소
+┌─────────────────────────────────────┐
+│                                     │
+│   ✨ 그래디언트 애니메이션 효과     │
+│   ⚡ 부드러운 트랜지션 및 호버      │
+│   🎯 현대적인 Glassmorphism 디자인 │
+│   📱 완벽한 모바일 반응형 대응      │
+│   🎪 인터랙티브 UI 요소             │
+│                                     │
+└─────────────────────────────────────┘
 ```
 
-</details>
+---
 
-<details>
-<summary><b>🤖 임베디드 프로젝트</b></summary>
+### 📌 프로젝트 2️⃣
 
+#### 🤖 임베디드 프로젝트
+```
 프로젝트를 계속 추가하세요! 🚀
+```
 
-</details>
+</div>
 
 ---
 
@@ -213,9 +220,28 @@ explorer intro.html
 ![License](https://img.shields.io/badge/License-Personal%20Portfolio-blueviolet?style=flat-square)
 
 이 프로젝트는 개인 포트폴리오 프로젝트입니다.
+<div align="center">
+
+```
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                                           ┃
+┃  ✅ 2026.01.12: 시각 효과 추가             ┃
+┃     • 진행도 바 시각화                   ┃
+┃     • 프로젝트 박스 디자인               ┃
+┃     • 배치 별 구분 개선                  ┃
+┃                                           ┃
+┃  ✅ 2026.01.12: README.md 완전 개선       ┃
+┃     • 마크다운 형식 오류 해결            ┃
+┃     • 기술 숙련도 테이블 추가            ┃
+┃                                           ┃
+┃  ✅ 2026.01.12: intro.html 완성           ┃
+┃     • 애니메이션 효과 적용              ┃
+┃     • Glassmorphism 디자인                ┃
+┃                                           ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+```
 
 </div>
-
 ---
 
 ## 🎯 최근 업데이트
