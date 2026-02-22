@@ -18,6 +18,7 @@
 ![Status](https://img.shields.io/badge/Status-Undergraduate_Researcher-6366f1?style=for-the-badge)
 ![Focus](https://img.shields.io/badge/Focus-Robotics_&_AI-a855f7?style=for-the-badge)
 ![ROS2](https://img.shields.io/badge/ROS2-Humble-22d3ee?style=for-the-badge&logo=ros&logoColor=white)
+![Claude Code](https://img.shields.io/badge/Claude_Code-Powered-D97706?style=for-the-badge&logo=anthropic&logoColor=white)
 
 </div>
 
@@ -42,11 +43,13 @@ class RoboticsEngineer:
             "autonomous": ["PID", "DQN", "Vision Nav", "SLAM"],
             "ai_vision": ["OpenCV", "OCR", "ArUco", "Depth"],
             "backend": ["Django", "Telegram Bot", "SQLite"],
+            "ai_tools": ["Claude Code", "Claude API"],
             "languages": ["C++", "Python"],
         }
 
         self.current = "Smart Store Robot Automation"
         self.passion = "Real-world Robotic Systems"
+        self.powered_by = "Claude Code"
 
     def motto(self):
         return "코드로 로봇을 움직인다"
@@ -89,6 +92,11 @@ me = RoboticsEngineer()
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+
+### AI-Powered Development
+![Claude Code](https://img.shields.io/badge/Claude_Code-D97706?style=for-the-badge&logo=anthropic&logoColor=white)
+![Claude API](https://img.shields.io/badge/Claude_API-B45309?style=for-the-badge&logo=anthropic&logoColor=white)
+![Anthropic](https://img.shields.io/badge/Anthropic-1A1A2E?style=for-the-badge&logo=anthropic&logoColor=white)
 
 </div>
 
@@ -254,6 +262,162 @@ me = RoboticsEngineer()
 
 ---
 
+<!-- Claude Code Divider -->
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="700"/>
+</div>
+
+## Powered by Claude Code
+
+<div align="center">
+
+<!-- Claude Code Animated SVG -->
+<svg width="100%" height="160" viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="claudeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D97706;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#F59E0B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D97706;stop-opacity:1" />
+    </linearGradient>
+    <filter id="claudeGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="160" fill="#0D1117" rx="12"/>
+  <rect width="600" height="160" fill="url(#claudeGrad)" opacity="0.06" rx="12"/>
+
+  <!-- Orbiting circles -->
+  <circle cx="300" cy="80" r="50" fill="none" stroke="#D97706" stroke-width="1" opacity="0.3">
+    <animate attributeName="r" values="50;60;50" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="300" cy="80" r="70" fill="none" stroke="#F59E0B" stroke-width="0.8" opacity="0.2">
+    <animate attributeName="r" values="70;80;70" dur="4s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Sparkles -->
+  <circle cx="180" cy="40" r="3" fill="#F59E0B" filter="url(#claudeGlow)">
+    <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="420" cy="50" r="3" fill="#D97706" filter="url(#claudeGlow)">
+    <animate attributeName="opacity" values="0;1;0" dur="2.5s" begin="0.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="150" cy="120" r="2" fill="#F59E0B" filter="url(#claudeGlow)">
+    <animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="1s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="450" cy="110" r="2" fill="#D97706" filter="url(#claudeGlow)">
+    <animate attributeName="opacity" values="0;1;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="250" cy="130" r="2" fill="#F59E0B" filter="url(#claudeGlow)">
+    <animate attributeName="opacity" values="0;1;0" dur="1.5s" begin="0.7s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="380" cy="30" r="2" fill="#D97706" filter="url(#claudeGlow)">
+    <animate attributeName="opacity" values="0;1;0" dur="2s" begin="1.2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Center icon pulse -->
+  <circle cx="300" cy="65" r="18" fill="#D97706" opacity="0.15">
+    <animate attributeName="r" values="18;24;18" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.15;0.05;0.15" dur="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Claude text -->
+  <text x="300" y="72" font-size="22" font-weight="bold" fill="url(#claudeGrad)" text-anchor="middle" filter="url(#claudeGlow)">
+    Claude Code
+  </text>
+  <text x="300" y="100" font-size="12" fill="#F59E0B" text-anchor="middle" opacity="0.7">
+    AI-Powered Development Workflow
+  </text>
+
+  <!-- Animated underline -->
+  <line x1="220" y1="110" x2="380" y2="110" stroke="url(#claudeGrad)" stroke-width="1.5" opacity="0.5">
+    <animate attributeName="x1" values="220;240;220" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="x2" values="380;360;380" dur="3s" repeatCount="indefinite"/>
+  </line>
+</svg>
+
+<br/>
+
+<a href="https://git.io/typing-svg">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=18&duration=3000&pause=1500&color=D97706&center=true&vCenter=true&repeat=true&width=700&height=50&lines=%E2%9A%A1+Claude+Code+%3D+%EB%82%B4+%EA%B0%9C%EB%B0%9C+%ED%8C%8C%ED%8A%B8%EB%84%88;%F0%9F%A4%96+Telegram+Bot+%E2%86%92+%EC%96%B4%EB%94%94%EC%84%9C%EB%93%A0+%EC%9B%90%EA%B2%A9+%EC%BD%94%EB%94%A9;%F0%9F%9B%A0%EF%B8%8F+%EC%BD%94%EB%93%9C+%EC%9E%91%EC%84%B1+%7C+%EB%A6%AC%EB%B7%B0+%7C+%EB%94%94%EB%B2%84%EA%B7%B8+%7C+%EC%9E%90%EB%8F%99%ED%99%94" alt="Claude Typing" />
+</a>
+
+</div>
+
+> **Claude Code는 단순한 도구가 아닌, 내 개발 워크플로우의 핵심 파트너입니다.**
+
+<table>
+<tr>
+<td width="50%">
+
+### loc_bot - 원격 개발 자동화
+```
+Telegram 메시지
+    ↓
+loc_bot (Python)
+    ↓
+Claude Code CLI
+    ↓
+코드 작성 / 수정 / 리뷰
+    ↓
+실시간 결과 스트리밍
+    ↓
+Telegram으로 응답
+```
+
+어디서든 Telegram으로 Claude Code를 제어하여
+프로젝트 코드를 작성하고 리뷰받는 시스템을 직접 구축했습니다.
+
+</td>
+<td width="50%">
+
+### Obsidian HTML Viewer - 지식 시각화
+```
+JSX/TSX 소스
+    ↓
+Claude Code + v4.4 프롬프트
+    ↓
+Obsidian 호환 단일 HTML 변환
+    ↓
+Custom Frames 자동 등록
+    ↓
+Obsidian에서 인터랙티브 가이드 열람
+```
+
+Claude Code를 활용하여 React 기반 인터랙티브 가이드를
+Obsidian에서 바로 열 수 있는 HTML로 자동 변환하는
+워크플로우를 설계했습니다.
+
+</td>
+</tr>
+</table>
+
+<div align="center">
+
+### Claude Code 활용 영역
+
+![Code Generation](https://img.shields.io/badge/Code_Generation-자동_코드_작성-D97706?style=for-the-badge)
+![Code Review](https://img.shields.io/badge/Code_Review-실시간_리뷰-B45309?style=for-the-badge)
+![Debugging](https://img.shields.io/badge/Debugging-버그_추적_&_수정-92400E?style=for-the-badge)
+
+![Refactoring](https://img.shields.io/badge/Refactoring-코드_개선-D97706?style=for-the-badge)
+![Documentation](https://img.shields.io/badge/Documentation-문서_자동화-B45309?style=for-the-badge)
+![Remote Dev](https://img.shields.io/badge/Remote_Dev-Telegram_원격_개발-92400E?style=for-the-badge)
+
+<br/>
+
+[![loc_bot](https://img.shields.io/badge/loc__bot-Telegram_→_Claude_Code_원격_제어-D97706?style=for-the-badge&logo=anthropic&logoColor=white)](https://github.com/lee6147/Undergraduate-research-student/tree/main/Claude/loc_bot)
+[![Obsidian](https://img.shields.io/badge/Obsidian_HTML-JSX_→_HTML_자동_변환-B45309?style=for-the-badge&logo=anthropic&logoColor=white)](https://github.com/lee6147/Undergraduate-research-student/tree/main/Claude/Obsidian)
+
+</div>
+
+---
+
 <!-- Divider -->
 <div align="center">
 <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="700"/>
@@ -276,6 +440,8 @@ me = RoboticsEngineer()
 | **AI / Vision** | OpenCV | ![](https://progress-bar.dev/85/?color=06b6d4&width=200) |
 | | OCR / Object Detection | ![](https://progress-bar.dev/80/?color=06b6d4&width=200) |
 | | Camera Calibration | ![](https://progress-bar.dev/80/?color=06b6d4&width=200) |
+| **AI Dev Tools** | Claude Code | ![](https://progress-bar.dev/95/?color=D97706&width=200) |
+| | Claude API | ![](https://progress-bar.dev/80/?color=D97706&width=200) |
 | **Languages** | C++ | ![](https://progress-bar.dev/85/?color=22d3ee&width=200) |
 | | Python | ![](https://progress-bar.dev/90/?color=22d3ee&width=200) |
 
@@ -383,6 +549,7 @@ me = RoboticsEngineer()
 <img src="https://img.shields.io/badge/Robotics-Passion-6366f1?style=flat-square"/>
 <img src="https://img.shields.io/badge/AI-Explorer-a855f7?style=flat-square"/>
 <img src="https://img.shields.io/badge/ROS2-Builder-06b6d4?style=flat-square"/>
+<img src="https://img.shields.io/badge/Claude_Code-Powered-D97706?style=flat-square"/>
 <img src="https://img.shields.io/badge/Open_Source-Contributor-22d3ee?style=flat-square"/>
 
 <br/><br/>
