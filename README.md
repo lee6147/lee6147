@@ -93,6 +93,12 @@ me = RoboticsEngineer()
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 
+### Quantum Computing
+![Quantum](https://img.shields.io/badge/Quantum_Computing-06b6d4?style=for-the-badge&logo=atom&logoColor=white)
+![Silicon Qubit](https://img.shields.io/badge/Si_Spin_Qubit-a855f7?style=for-the-badge)
+![BQB](https://img.shields.io/badge/BQB_Architecture-6366f1?style=for-the-badge)
+![FD-SOI](https://img.shields.io/badge/22nm_FD--SOI-22d3ee?style=for-the-badge)
+
 ### AI-Powered Development
 ![Claude Code](https://img.shields.io/badge/Claude_Code-D97706?style=for-the-badge&logo=anthropic&logoColor=white)
 ![Claude API](https://img.shields.io/badge/Claude_API-B45309?style=for-the-badge&logo=anthropic&logoColor=white)
@@ -219,21 +225,132 @@ me = RoboticsEngineer()
 <!-- Project 3: Quantum BQB -->
 <div align="center">
 
-### Quantum BQB - Interactive Quantum Mechanics Guide
+<!-- Quantum Section Header -->
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:06b6d4,50:a855f7,100:6366f1&height=70&text=%E2%9A%9B%EF%B8%8F%20Quantum%20BQB%20%E2%80%94%20Interactive%20Quantum%20Learning%20Platform&fontSize=22&fontColor=ffffff&fontAlignY=50" width="100%"/>
 
-<img src="https://img.shields.io/badge/Research-React_|_HTML_|_Interactive_Visualization-06b6d4?style=for-the-badge"/>
+<br/>
+
+<a href="https://git.io/typing-svg">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=16&duration=2500&pause=1000&color=22D3EE&center=true&vCenter=true&repeat=true&width=750&height=45&lines=%E2%9A%9B%EF%B8%8F+BQB+%3D+Buried+Quantum+Barrier;%F0%9F%94%AC+Si-28+%2B+P-31+Donor+Spin+Qubit+Array;%F0%9F%8E%AF+16%C3%9716+%E2%86%92+32%C3%9732+Scalable+Architecture;%F0%9F%A7%AC+22nm+FD-SOI+Foundry+Process" alt="Quantum Typing" />
+</a>
 
 </div>
 
-> **양자역학 BQB를 인터랙티브 웹 가이드로 시각화한 교육 프로젝트**
-
-- 난이도별 학습 자료 구성 (Basic → Intermediate → Advanced)
-- React 기반 인터랙티브 HTML 런처
-- 파티클 시스템, 타이핑 효과, 스크롤 애니메이션
+> **BQB(Buried Quantum Barrier) 기반 반도체 큐비트 대규모 어레이 기술을 인터랙티브 웹 플랫폼으로 구축한 연구 프로젝트**
 
 <div align="center">
 
+![Platform](https://img.shields.io/badge/Platform-239KB_Single_File_React_App-06b6d4?style=for-the-badge)
+![Modules](https://img.shields.io/badge/Modules-4_Interactive_Guides-a855f7?style=for-the-badge)
+![Visualizations](https://img.shields.io/badge/Visualizations-7_Quantum_Concepts-6366f1?style=for-the-badge)
+
+</div>
+
+<table>
+<tr>
+<td width="50%">
+
+**Quantum World Explorer - 7가지 양자역학 시각화**
+
+| # | Concept | Visualization |
+|:-:|:--------|:-------------|
+| 1 | Superposition (중첩) | 다중 상태 동시 존재 애니메이션 |
+| 2 | Entanglement (얽힘) | 비국소적 상관관계 시각화 |
+| 3 | Quantum Tunneling (터널링) | 에너지 장벽 투과 확률 |
+| 4 | Measurement Problem (측정) | 파동함수 붕괴 인터랙션 |
+| 5 | Wave-Particle Duality (이중성) | 빛과 물질의 이중 성질 |
+| 6 | Uncertainty Principle (불확정성) | 위치-운동량 한계 시각화 |
+| 7 | Why Quantum? (동기) | 이론 → 공학 연결 |
+
+</td>
+<td width="50%">
+
+**BQB Guides - 3단계 난이도별 학습**
+
+| Level | Content | Scale |
+|:------|:--------|:------|
+| **Basic** | 큐비트 개념, BQB 비유 설명, 5가지 동시 실패 모드, Process Window, Triple-Wall 보호 | 619줄 |
+| **Intermediate** | 수율 스케일링 수학 (p^N² law), 이온주입 물리학, 3축 공정 창, Closed-Loop 수렴 | 958줄 |
+| **Advanced** | Error Budget 분해, DD-IC 회로 블록, 열설계, 5년 KPI 매트릭스 (TRL 3→5) | 622줄 |
+
+</td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="50%">
+
+**BQB 핵심 기술 아키텍처**
+```
+Silicon-28 기판
+    ↓
+P-31 Donor Spin Qubit (전자 스핀)
+    ↓
+BQB Template (사전 매립 장벽)
+    ↓
+Triple-Wall QBQ 보호
+├── STI 외벽 (물리적 격리)
+├── T3 전기 차폐 (전기적 격리)
+└── BQB-B 매립 장벽 (양자 격리)
+    ↓
+Closed-Loop 공정
+  Generate → Verify → Correct
+    ↓
+77K DD-IC 근접 제어
+  256 lines → 16 lines (Fan-out √N)
+```
+
+</td>
+<td width="50%">
+
+**Interactive Launcher Features**
+```
+BQB Final Launcher (239KB)
+    ↓
+┌─ Category Filtering (6 categories)
+├─ Tag-based Search
+├─ Particle Background Animation
+├─ Grid Overlay Effects
+└─ Dark Theme + Glow Effects
+    ↓
+4 Embedded Learning Apps
+├── BQB Beginner Guide
+├── BQB Intermediate Guide
+├── Quantum World Explorer
+└── BQB Advanced Guide
+    ↓
+SVG Animation + Interactive Diagrams
+```
+
+</td>
+</tr>
+</table>
+
+<div align="center">
+
+**Research Goal: Scalable Qubit Array**
+
+```
+ Current State                          Target
+ ┌──────────┐    22nm FD-SOI     ┌──────────────────┐
+ │ 6~12     │    BQB Process     │   16×16 (256)    │
+ │ Qubits   │ ──────────────►    │   → 32×32 (1024) │
+ │ (Linear) │    Triple-Wall     │   Qubit Array    │
+ └──────────┘    Closed-Loop     └──────────────────┘
+
+ Overlay ≤ 15nm │ F1q ≥ 0.999 │ F2q ≥ 0.99 │ T2 ≥ 1s
+```
+
+![Quantum](https://img.shields.io/badge/Quantum_Computing-Silicon_Spin_Qubit-06b6d4?style=flat-square)
+![Scale](https://img.shields.io/badge/Target-1024_Qubits-a855f7?style=flat-square)
+![Fidelity](https://img.shields.io/badge/Gate_Fidelity-99.9%25+-6366f1?style=flat-square)
+![Process](https://img.shields.io/badge/Foundry-22nm_FD--SOI-22d3ee?style=flat-square)
+
+<br/>
+
 [![Repo](https://img.shields.io/badge/View_Repository-Quantum__BQB-a855f7?style=for-the-badge&logo=github&logoColor=white)](https://github.com/lee6147/Undergraduate-research-student/tree/main/Quantum_BQB)
+[![Launcher](https://img.shields.io/badge/BQB_Launcher-239KB_Interactive_App-06b6d4?style=for-the-badge&logo=react&logoColor=white)](https://github.com/lee6147/Undergraduate-research-student/tree/main/Quantum_BQB)
 
 </div>
 
@@ -271,75 +388,8 @@ me = RoboticsEngineer()
 
 <div align="center">
 
-<!-- Claude Code Animated SVG -->
-<svg width="100%" height="160" viewBox="0 0 600 160" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="claudeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#D97706;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#F59E0B;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#D97706;stop-opacity:1" />
-    </linearGradient>
-    <filter id="claudeGlow">
-      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
-
-  <!-- Background -->
-  <rect width="600" height="160" fill="#0D1117" rx="12"/>
-  <rect width="600" height="160" fill="url(#claudeGrad)" opacity="0.06" rx="12"/>
-
-  <!-- Orbiting circles -->
-  <circle cx="300" cy="80" r="50" fill="none" stroke="#D97706" stroke-width="1" opacity="0.3">
-    <animate attributeName="r" values="50;60;50" dur="3s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="300" cy="80" r="70" fill="none" stroke="#F59E0B" stroke-width="0.8" opacity="0.2">
-    <animate attributeName="r" values="70;80;70" dur="4s" repeatCount="indefinite"/>
-  </circle>
-
-  <!-- Sparkles -->
-  <circle cx="180" cy="40" r="3" fill="#F59E0B" filter="url(#claudeGlow)">
-    <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="420" cy="50" r="3" fill="#D97706" filter="url(#claudeGlow)">
-    <animate attributeName="opacity" values="0;1;0" dur="2.5s" begin="0.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="150" cy="120" r="2" fill="#F59E0B" filter="url(#claudeGlow)">
-    <animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="1s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="450" cy="110" r="2" fill="#D97706" filter="url(#claudeGlow)">
-    <animate attributeName="opacity" values="0;1;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="250" cy="130" r="2" fill="#F59E0B" filter="url(#claudeGlow)">
-    <animate attributeName="opacity" values="0;1;0" dur="1.5s" begin="0.7s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="380" cy="30" r="2" fill="#D97706" filter="url(#claudeGlow)">
-    <animate attributeName="opacity" values="0;1;0" dur="2s" begin="1.2s" repeatCount="indefinite"/>
-  </circle>
-
-  <!-- Center icon pulse -->
-  <circle cx="300" cy="65" r="18" fill="#D97706" opacity="0.15">
-    <animate attributeName="r" values="18;24;18" dur="2s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.15;0.05;0.15" dur="2s" repeatCount="indefinite"/>
-  </circle>
-
-  <!-- Claude text -->
-  <text x="300" y="72" font-size="22" font-weight="bold" fill="url(#claudeGrad)" text-anchor="middle" filter="url(#claudeGlow)">
-    Claude Code
-  </text>
-  <text x="300" y="100" font-size="12" fill="#F59E0B" text-anchor="middle" opacity="0.7">
-    AI-Powered Development Workflow
-  </text>
-
-  <!-- Animated underline -->
-  <line x1="220" y1="110" x2="380" y2="110" stroke="url(#claudeGrad)" stroke-width="1.5" opacity="0.5">
-    <animate attributeName="x1" values="220;240;220" dur="3s" repeatCount="indefinite"/>
-    <animate attributeName="x2" values="380;360;380" dur="3s" repeatCount="indefinite"/>
-  </line>
-</svg>
+<!-- Claude Code Header -->
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:D97706,50:F59E0B,100:D97706&height=80&text=%E2%9A%A1%20Claude%20Code%20%E2%80%94%20AI-Powered%20Development&fontSize=24&fontColor=ffffff&fontAlignY=50" width="100%"/>
 
 <br/>
 
@@ -429,21 +479,24 @@ Obsidian에서 바로 열 수 있는 HTML로 자동 변환하는
 
 | Domain | Skill | Level |
 |:---:|:---|:---:|
-| **Robotics** | ROS2 (Humble) | ![](https://progress-bar.dev/90/?color=6366f1&width=200) |
-| | Robot Arm Control (MyCobot) | ![](https://progress-bar.dev/85/?color=6366f1&width=200) |
-| | MAPF (Multi-Agent Path Finding) | ![](https://progress-bar.dev/80/?color=6366f1&width=200) |
-| | FMS (Fleet Management) | ![](https://progress-bar.dev/85/?color=6366f1&width=200) |
-| **Autonomous** | PID Control | ![](https://progress-bar.dev/90/?color=a855f7&width=200) |
-| | DQN Reinforcement Learning | ![](https://progress-bar.dev/75/?color=a855f7&width=200) |
-| | Vision-based Navigation | ![](https://progress-bar.dev/80/?color=a855f7&width=200) |
-| | ArUco Marker Localization | ![](https://progress-bar.dev/85/?color=a855f7&width=200) |
-| **AI / Vision** | OpenCV | ![](https://progress-bar.dev/85/?color=06b6d4&width=200) |
-| | OCR / Object Detection | ![](https://progress-bar.dev/80/?color=06b6d4&width=200) |
-| | Camera Calibration | ![](https://progress-bar.dev/80/?color=06b6d4&width=200) |
-| **AI Dev Tools** | Claude Code | ![](https://progress-bar.dev/95/?color=D97706&width=200) |
-| | Claude API | ![](https://progress-bar.dev/80/?color=D97706&width=200) |
-| **Languages** | C++ | ![](https://progress-bar.dev/85/?color=22d3ee&width=200) |
-| | Python | ![](https://progress-bar.dev/90/?color=22d3ee&width=200) |
+| **Robotics** | ROS2 (Humble) | ![](https://img.shields.io/badge/90%25-6366f1?style=flat-square&label=&labelColor=1a1a2e) |
+| | Robot Arm Control (MyCobot) | ![](https://img.shields.io/badge/85%25-6366f1?style=flat-square&label=&labelColor=1a1a2e) |
+| | MAPF (Multi-Agent Path Finding) | ![](https://img.shields.io/badge/80%25-6366f1?style=flat-square&label=&labelColor=1a1a2e) |
+| | FMS (Fleet Management) | ![](https://img.shields.io/badge/85%25-6366f1?style=flat-square&label=&labelColor=1a1a2e) |
+| **Autonomous** | PID Control | ![](https://img.shields.io/badge/90%25-a855f7?style=flat-square&label=&labelColor=1a1a2e) |
+| | DQN Reinforcement Learning | ![](https://img.shields.io/badge/75%25-a855f7?style=flat-square&label=&labelColor=1a1a2e) |
+| | Vision-based Navigation | ![](https://img.shields.io/badge/80%25-a855f7?style=flat-square&label=&labelColor=1a1a2e) |
+| | ArUco Marker Localization | ![](https://img.shields.io/badge/85%25-a855f7?style=flat-square&label=&labelColor=1a1a2e) |
+| **AI / Vision** | OpenCV | ![](https://img.shields.io/badge/85%25-06b6d4?style=flat-square&label=&labelColor=1a1a2e) |
+| | OCR / Object Detection | ![](https://img.shields.io/badge/80%25-06b6d4?style=flat-square&label=&labelColor=1a1a2e) |
+| | Camera Calibration | ![](https://img.shields.io/badge/80%25-06b6d4?style=flat-square&label=&labelColor=1a1a2e) |
+| **Quantum** | BQB Architecture Design | ![](https://img.shields.io/badge/90%25-a855f7?style=flat-square&label=&labelColor=1a1a2e) |
+| | Quantum Mechanics Visualization | ![](https://img.shields.io/badge/85%25-a855f7?style=flat-square&label=&labelColor=1a1a2e) |
+| | Interactive Learning Platform | ![](https://img.shields.io/badge/90%25-06b6d4?style=flat-square&label=&labelColor=1a1a2e) |
+| **AI Dev Tools** | Claude Code | ![](https://img.shields.io/badge/95%25-D97706?style=flat-square&label=&labelColor=1a1a2e) |
+| | Claude API | ![](https://img.shields.io/badge/80%25-D97706?style=flat-square&label=&labelColor=1a1a2e) |
+| **Languages** | C++ | ![](https://img.shields.io/badge/85%25-22d3ee?style=flat-square&label=&labelColor=1a1a2e) |
+| | Python | ![](https://img.shields.io/badge/90%25-22d3ee?style=flat-square&label=&labelColor=1a1a2e) |
 
 </div>
 
