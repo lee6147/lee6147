@@ -5,7 +5,7 @@
 
 <!-- Typing Animation -->
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=26&duration=3000&pause=1000&color=A855F7&center=true&vCenter=true&multiline=true&repeat=true&width=800&height=100&lines=%F0%9F%A4%96+Robotics+%2B+Autonomous+Driving+Engineer;%F0%9F%A7%A0+AI+%2F+Computer+Vision+Developer;%F0%9F%9A%80+From+Idea+to+Real-World+System" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=26&duration=3000&pause=1000&color=A855F7&center=true&vCenter=true&multiline=true&repeat=true&width=800&height=100&lines=%F0%9F%A4%96+Robotics+%2B+Autonomous+Driving+Engineer;%F0%9F%94%AC+AI+%2F+Computer+Vision+Developer;%F0%9F%9A%80+From+Idea+to+Real-World+System" alt="Typing SVG" />
 </a>
 
 <br/>
@@ -187,270 +187,29 @@ me = RoboticsEngineer()
 <br/>
 
 <!-- Section Banner -->
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:6366f1,50:a855f7,100:06b6d4&height=70&text=%F0%9F%9A%97%20Autonomous%20Driving%20%E2%80%94%20CBS%20%C3%97%20PID%20%C3%97%20MAPF&fontSize=22&fontColor=ffffff&fontAlignY=50" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:6366f1,50:a855f7,100:06b6d4&height=70&text=%F0%9F%9A%97%20Autonomous%20Driving%20%E2%80%94%20PID%20%C3%97%20MAPF&fontSize=22&fontColor=ffffff&fontAlignY=50" width="100%"/>
 
 <br/>
 
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=A855F7&center=true&vCenter=true&repeat=true&width=750&height=50&lines=%F0%9F%97%BA%EF%B8%8F+CBS+Conflict-Based+Search+%7C+Multi-Agent+Path+Finding;%F0%9F%8E%AE+PID+State+Machine+%7C+RotateToGoal+%E2%86%92+MoveToGoal+%E2%86%92+GoalReached;%F0%9F%94%84+3+AMR+Simultaneous+Collision-Free+Navigation;%E2%9A%A1+Real-time+Path+Replanning+%7C+Nav2+Replacement" alt="Typing SVG" /></a>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=A855F7&center=true&vCenter=true&repeat=true&width=750&height=50&lines=%F0%9F%8E%AE+PID+State+Machine+%7C+RotateToGoal+%E2%86%92+MoveToGoal+%E2%86%92+GoalReached;%F0%9F%94%84+3+AMR+Simultaneous+Collision-Free+Navigation;%E2%9A%A1+Real-time+Path+Replanning+%7C+Nav2+Replacement" alt="Typing SVG" /></a>
 
 <br/>
 
 <img src="https://raw.githubusercontent.com/addinedu-roscamp-5th/roscamp-repo-3/main/docs/images/Multi%20Robots%20Driving.gif" width="700"/>
 
-<sub><b>3 AMR Simultaneous Autonomous Driving — CBS Path Planning + PID Navigation</b></sub>
+<sub><b>3 AMR Simultaneous Autonomous Driving — MAPF Path Planning + PID Navigation</b></sub>
 
 <br/><br/>
 
-![CBS](https://img.shields.io/badge/CBS-Conflict_Based_Search-6366f1?style=for-the-badge)
 ![PID](https://img.shields.io/badge/PID-Navigation_Controller-a855f7?style=for-the-badge)
 ![MAPF](https://img.shields.io/badge/MAPF-3_Robots_Simultaneous-06b6d4?style=for-the-badge)
-![A*](https://img.shields.io/badge/A*-Time_Space_Search-22d3ee?style=for-the-badge)
 
 ![ROS2](https://img.shields.io/badge/ROS2-Humble-22314E?style=flat-square&logo=ros&logoColor=white)
-![C++17](https://img.shields.io/badge/C%2B%2B17-00599C?style=flat-square&logo=cplusplus&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white)
 
 </div>
 
----
-
-<details open>
-<summary><h4>🏗️ System Architecture</h4></summary>
-
-```mermaid
-flowchart TB
-    subgraph GUI["🖥️ GUI Layer"]
-        WEB["🌐 Web GUI\n(Customer Order)"]
-        QT["📊 Qt GUI\n(Admin Monitoring)"]
-    end
-
-    subgraph FMS["⚙️ FMS — Fleet Management System (C++)"]
-        RM["📋 Request\nManager"]
-        CBS["🗺️ Traffic\nPlanner\n(CBS)"]
-        AMR_A["🤖 AMR\nAdapter ×3"]
-        CORE["🧠 Core\nController"]
-
-        RM -->|"order assign"| CORE
-        CORE -->|"path request"| CBS
-        CBS -->|"collision-free path"| AMR_A
-        CORE --- AMR_A
-    end
-
-    subgraph NAV["🎮 Navigation Layer (Python)"]
-        PID["🎯 PID State\nMachine"]
-        VEL["📡 Velocity\nFilter"]
-    end
-
-    subgraph HW["🔧 Hardware"]
-        R1["🤖 AMR #1"]
-        R2["🤖 AMR #2"]
-        R3["🤖 AMR #3"]
-    end
-
-    WEB -->|"HTTP"| RM
-    QT -->|"realtime monitoring"| CORE
-    AMR_A -->|"Waypoint\nPublish"| PID
-    PID -->|"cmd_vel"| R1 & R2 & R3
-    VEL -->|"filtered_vel"| PID
-    R1 & R2 & R3 -->|"pose"| CORE
-
-    style GUI fill:#ede9fe,stroke:#6366f1,color:#312e81
-    style FMS fill:#fce7f3,stroke:#ec4899,color:#831843
-    style NAV fill:#ecfdf5,stroke:#10b981,color:#064e3b
-    style HW fill:#e0e7ff,stroke:#a855f7,color:#3b0764
-```
-
-<div align="center">
-
-```
-┌──────────────────────────────────────────────────────┐
-│                    12×22 Grid Map                    │
-│                 (Resolution: 0.1m/cell)              │
-│                                                      │
-│   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ▓ = Wall / Obstacle    │
-│   ▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░▓   ░ = Passable            │
-│   ▓▓▓▓░░░░░░░░░░░░░░░░░▓   📦 = Storage (6,2)      │
-│   ▓▓▓▓░░░░░░░░░░░░░░░░░▓   ⚡ = Charging Station    │
-│   ▓▓▓▓░░░░░░░░░░░░░░░░░▓                            │
-│   ▓▓▓▓▓▓▓▓▓▓░░░▓▓▓░░░░░▓   AMR: 3 robots           │
-│   ▓▓▓▓▓▓▓▓▓▓📦░░▓▓▓▓▓░░░▓   Arrival: ≤ 0.05m       │
-│   ▓▓▓▓▓▓▓▓▓▓░░░▓▓▓▓▓░░░▓                            │
-│   ▓▓▓▓▓▓▓▓▓▓░░░░░▓▓▓░⚡░▓   Charging: (9,8)(9,5)   │
-│   ▓▓▓▓▓▓▓▓▓▓░░░░░░░░░⚡░▓            (9,4)          │
-│   ▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░▓                            │
-│   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                            │
-└──────────────────────────────────────────────────────┘
-```
-
-</div>
-
-</details>
-
----
-
-<details open>
-<summary><h4>🗺️ CBS (Conflict-Based Search) — Multi-Robot Path Planning</h4></summary>
-
-<div align="center">
-
-> 다수의 로봇이 **동시에** 이동할 때 서로 충돌하지 않는 **최적 경로**를 계산하는 MAPF 알고리즘
-
-<br/>
-
-<table>
-<tr>
-<td width="50%" align="center">
-<img src="https://raw.githubusercontent.com/addinedu-roscamp-5th/roscamp-repo-3/main/docs/images/MAPF%20Examples.gif" width="100%"/>
-<br/>
-<sub><b>CBS Path Planning Simulation</b></sub>
-</td>
-<td width="50%" align="center">
-<img src="https://raw.githubusercontent.com/addinedu-roscamp-5th/roscamp-repo-3/main/docs/images/MAPF%20path%20examples.gif" width="100%"/>
-<br/>
-<sub><b>Multi-Robot Path Generation Result</b></sub>
-</td>
-</tr>
-</table>
-
-</div>
-
-<br/>
-
-```mermaid
-flowchart TD
-    START(["🚀 planPaths(starts, goals)"])
-
-    subgraph HL["🔷 High-Level: CBS Tree Search"]
-        INIT["Each robot: independent A* path"]
-        ROOT["Root Node\n(initial solution + cost)"]
-        PQ["Priority Queue\n(min cost first)"]
-        DETECT{"🔴 Conflict\nDetection"}
-        DONE(["✅ No Conflict!\nReturn Optimal Solution"])
-
-        BRANCH["Branch: Add Constraint"]
-        LEFT["📌 Left Child\nAgent₁ banned at loc/time"]
-        RIGHT["📌 Right Child\nAgent₂ banned at loc/time"]
-    end
-
-    subgraph LL["🔶 Low-Level: Time-Space A*"]
-        ASTAR["A* Search\n(x, y, timestep)"]
-        CONSTRAINT["Apply Constraints\nban specific loc at time"]
-        HEURISTIC["Manhattan Distance\nHeuristic"]
-    end
-
-    START --> INIT
-    INIT --> ROOT
-    ROOT --> PQ
-    PQ --> DETECT
-    DETECT -->|"conflict found"| BRANCH
-    DETECT -->|"no conflict"| DONE
-    BRANCH --> LEFT & RIGHT
-    LEFT --> ASTAR
-    RIGHT --> ASTAR
-    ASTAR --> CONSTRAINT
-    CONSTRAINT --> HEURISTIC
-    HEURISTIC --> PQ
-
-    style HL fill:#ede9fe,stroke:#6366f1,color:#312e81
-    style LL fill:#fff7ed,stroke:#f97316,color:#7c2d12
-    style DONE fill:#dcfce7,stroke:#16a34a,color:#14532d
-    style START fill:#e0e7ff,stroke:#6366f1,color:#312e81
-```
-
-<br/>
-
-<div align="center">
-
-**⚡ Conflict Types**
-
-```
-  ┌─────────────────────────────┐    ┌─────────────────────────────┐
-  │      Vertex Conflict        │    │       Edge Conflict         │
-  │   (same time, same cell)    │    │     (swap positions)        │
-  │                             │    │                             │
-  │   t=3:  A → ● ← B          │    │   t=3:  A ●─────● B        │
-  │              ↑              │    │   t=4:  B ●─────● A        │
-  │         collision!          │    │        swap conflict!       │
-  │                             │    │                             │
-  │   path[i][t] == path[j][t]  │    │   path[i][t] == path[j][t+1]│
-  │                             │    │   path[j][t] == path[i][t+1]│
-  └─────────────────────────────┘    └─────────────────────────────┘
-```
-
-</div>
-
-<details>
-<summary><b>📜 CBS Core Implementation (C++) — Click to expand</b></summary>
-
-<br/>
-
-**High-Level CBS Search**
-```cpp
-std::vector<std::vector<Position>> TrafficPlanner::planPaths(
-    const std::vector<Position>& starts, const std::vector<Position>& goals)
-{
-    CBSNode root;
-    for (size_t i = 0; i < starts.size(); ++i)
-        root.paths.push_back(a_star(starts[i], goals[i], root.constraints, i));
-    root.cost = computeCost(root.paths);
-
-    std::priority_queue<CBSNode, std::vector<CBSNode>, std::greater<CBSNode>> open;
-    open.push(root);
-
-    while (!open.empty()) {
-        CBSNode current = open.top(); open.pop();
-        Conflict conflict = detectFirstConflict(current.paths);
-        if (conflict.agent1 == -1) return current.paths;  // ✅ Optimal!
-
-        for (int agent : {conflict.agent1, conflict.agent2}) {
-            CBSNode child = current;
-            child.constraints.push_back({agent, conflict.timestep, conflict.loc});
-            child.paths[agent] = a_star(starts[agent], goals[agent],
-                                         child.constraints, agent);
-            child.cost = computeCost(child.paths);
-            open.push(child);
-        }
-    }
-    return {};
-}
-```
-
-**Low-Level: Time-Space A\***
-```cpp
-std::vector<Position> TrafficPlanner::a_star(
-    const Position& start, const Position& goal,
-    const std::vector<Constraint>& constraints, int agent)
-{
-    // State space: (x, y, timestep) — key difference from standard A*
-    auto cmp = [](const Node* a, const Node* b) { return a->f_val() > b->f_val(); };
-    std::priority_queue<Node*, std::vector<Node*>, decltype(cmp)> open(cmp);
-
-    Node* start_node = new Node{start, 0, manhattan(start, goal), 0, nullptr};
-    open.push(start_node);
-
-    while (!open.empty()) {
-        Node* current = open.top(); open.pop();
-        if (current->pos == goal) return reconstructPath(current);
-
-        for (auto& [dx, dy] : directions) {  // 4-dir + wait
-            Position next = {current->pos.x + dx, current->pos.y + dy};
-            int next_t = current->timestep + 1;
-            if (!isValid(next) || isConstrained(agent, next, next_t, constraints))
-                continue;
-            open.push(new Node{next, current->g_val + 1,
-                               manhattan(next, goal), next_t, current});
-        }
-    }
-    return {};
-}
-```
-
-</details>
-
-</details>
-
----
 
 <details open>
 <summary><h4>🎮 PID Navigation State Machine</h4></summary>
@@ -466,27 +225,6 @@ std::vector<Position> TrafficPlanner::a_star(
 <sub><b>Navigation State Machine in action</b></sub>
 
 </div>
-
-<br/>
-
-```mermaid
-stateDiagram-v2
-    [*] --> IDLE : Start
-
-    IDLE --> RotateToGoal : 🎯 Waypoint received
-    RotateToGoal --> MoveToGoal : ✅ angle error < threshold
-    RotateToGoal --> RotateToGoal : 🔄 Angular PID
-    MoveToGoal --> RotateToFinal : ✅ distance < threshold
-    MoveToGoal --> MoveToGoal : 🔄 Linear + Angular PID
-    RotateToFinal --> GoalReached : ✅ final pose aligned
-    RotateToFinal --> RotateToFinal : 🔄 Angular PID
-    GoalReached --> IDLE : 📍 wait next WP
-    GoalReached --> RotateToGoal : 📍 next WP received
-
-    note right of RotateToGoal : In-place rotation\ntoward goal
-    note right of MoveToGoal : Drive + heading\ncorrection (dual PID)
-    note right of RotateToFinal : Fine-tune final\nheading angle
-```
 
 <br/>
 
@@ -516,30 +254,6 @@ stateDiagram-v2
 <div align="center">
 
 <img src="https://raw.githubusercontent.com/addinedu-roscamp-5th/roscamp-repo-3/main/docs/images/PID%20Control%20logic.png" width="600"/>
-
-</div>
-
-<br/>
-
-$$u(t) = \underbrace{K_p \cdot e(t)}_{\text{Proportional}} + \underbrace{K_i \int_0^t e(\tau)\,d\tau}_{\text{Integral}} + \underbrace{K_d \frac{de(t)}{dt}}_{\text{Derivative}}$$
-
-<br/>
-
-<div align="center">
-
-**🛡️ Anti-Windup: Integral Clamping**
-
-```
-         Without Anti-Windup                  With Anti-Windup
-
-  goal ─────    ╭──╮    ╭─╮                 ╭──────────────────
-               │  │   │ │                 │
-               │  ╰───╯ ╰──────          │
-               │   oscillation &           │   fast convergence ✅
-  ─────────────╯    overshoot ❌  ─────────╯
-
-  integral:  keeps growing → ∞             integral:  clamped to [-limit, +limit]
-```
 
 </div>
 
@@ -607,7 +321,6 @@ sequenceDiagram
     actor C as 🧑 Customer
     participant W as 🌐 Web GUI
     participant F as ⚙️ FMS Core
-    participant CBS as 🗺️ CBS Planner
     participant AMR as 🤖 AMR
     participant PID as 🎮 PID Controller
 
@@ -616,11 +329,7 @@ sequenceDiagram
 
     Note over F: 🏆 BestRobotSelector<br/>battery + state based<br/>optimal robot selection
 
-    F->>CBS: 3️⃣ Path request (all active robots)
-
-    Note over CBS: 🗺️ CBS MAPF<br/>collision-free optimal<br/>paths for all robots
-
-    CBS-->>F: Collision-free paths
+    F->>F: 3️⃣ MAPF Path Planning
     F->>AMR: 4️⃣ Waypoint list
 
     loop Each Waypoint
@@ -633,8 +342,7 @@ sequenceDiagram
 
     Note over AMR: 📦 Storage arrival<br/>Product loaded
 
-    F->>CBS: 5️⃣ Replan to destination
-    CBS-->>F: New path
+    F->>F: 5️⃣ Replan to destination
     F->>AMR: Move to customer
 
     AMR-->>C: 6️⃣ Delivery complete ✅
@@ -654,7 +362,7 @@ stateDiagram-v2
 
     state BUSY {
         [*] --> CheckPath
-        CheckPath --> MoveToStorage : 🗺️ CBS path received
+        CheckPath --> MoveToStorage : 🗺️ Path received
         MoveToStorage --> MoveToDestination : 📦 Product loaded
         MoveToDestination --> [*] : 🎯 Customer reached
     }
@@ -667,45 +375,6 @@ stateDiagram-v2
     note right of RETURN : Returning to\ncharging station
 ```
 
-<details>
-<summary><b>📜 AMR Adapter Core Code (C++) — Click to expand</b></summary>
-
-<br/>
-
-```cpp
-// 🎯 Waypoint arrival detection
-bool AmrAdapter::handleWaypointArrival(const pose2f& pos) {
-    Position wp = getCurrentWayPoint();
-    float dist = std::hypot(pos.x - wp.x, pos.y - wp.y);
-    if (dist <= 0.05f) {           // ARRIVAL_TOLERANCE
-        sendNextpoint();            // → proceed to next waypoint
-    }
-    return true;
-}
-
-// 📍 Send next waypoint
-void AmrAdapter::sendNextpoint() {
-    if (isGoal()) { MoveToDone(); return; }   // final destination?
-    incrementWaypointIndex();
-    Position wp = getCurrentWayPoint();
-    core->publishNavGoal(robot_id, wp);       // ROS2 topic publish
-}
-
-// 🔄 State transition on completion
-void AmrAdapter::MoveToDone() {
-    switch (step_) {
-        case MoveTo_Storage:                   // arrived at storage
-            SendPickupRequest();               // → request robot arm
-            SetAmrStep(MoveTo_dst);            // → next: go to customer
-            break;
-        case MoveTo_charging_station:          // arrived at charger
-            SetAmrState(IDLE);                 // → back to standby
-            break;
-    }
-}
-```
-
-</details>
 
 </details>
 
@@ -717,34 +386,23 @@ void AmrAdapter::MoveToDone() {
 
 <table>
 <tr>
-<td align="center" width="20%">
-
-### 🗺️
-**CBS MAPF**
-3 AMR
-Collision-free
-Path Planning
-
-</td>
-<td align="center" width="20%">
+<td align="center" width="25%">
 
 ### 🎮
 **PID Control**
-Anti-Windup
 Real-time Tuning
 Stable Convergence
 
 </td>
-<td align="center" width="20%">
+<td align="center" width="25%">
 
-### 🔄
-**Live Replan**
-Dynamic path
-recalculation on
-robot join/return
+### 🗺️
+**MAPF**
+3 AMR Collision-free
+Path Planning
 
 </td>
-<td align="center" width="20%">
+<td align="center" width="25%">
 
 ### ⚡
 **Nav2 Replace**
@@ -753,11 +411,10 @@ FMS-optimized
 Waypoint tracking
 
 </td>
-<td align="center" width="20%">
+<td align="center" width="25%">
 
-### 🧠
+### ⚙️
 **FMS Core**
-C++ Thread Pool
 Multi-robot
 State Machine
 
@@ -773,7 +430,6 @@ State Machine
 
 | | Topic | Insight |
 |:---:|:---:|:---|
-| 🗺️ | **MAPF** | Multi-robot path planning requires **time-axis** consideration; CBS guarantees optimality while remaining practical |
 | 🎛️ | **PID Tuning** | Theoretical gains vs real-robot optimal gains differ greatly; **real-time tuning infrastructure** is essential |
 | 🔧 | **Integration** | Interface design between path planner → controller → hardware is **critical** for system stability |
 | 🤖 | **Nav2 vs Custom** | Evaluated framework trade-offs; chose **project-fit over convenience** |
@@ -951,11 +607,6 @@ flowchart TD
 
 <br/>
 
-$$Y = p^{N^2} \quad \Rightarrow \quad \text{Overlay} \leq 15\text{nm required for } p \to 1$$
-
-$$F_{1q} \geq 0.999 \qquad F_{2q} \geq 0.99 \qquad T_2 \geq 1\text{s}$$
-
-<br/>
 
 ```mermaid
 stateDiagram-v2
@@ -1121,8 +772,6 @@ SVG Animation + Interactive Diagrams
 
 **수율 스케일링 법칙 (Yield Scaling Law)**
 
-$$Y_{\text{array}} = p^{N^2}$$
-
 | Array Size | Qubits | Required $p$ for $Y > 50\%$ |
 |:---:|:---:|:---:|
 | 4×4 | 16 | $p > 0.957$ |
@@ -1135,8 +784,6 @@ $$Y_{\text{array}} = p^{N^2}$$
 <br/>
 
 **Error Budget 분해**
-
-$$\varepsilon_{\text{total}} = \varepsilon_{\text{gate}} + \varepsilon_{\text{readout}} + \varepsilon_{\text{crosstalk}} + \varepsilon_{\text{decoherence}}$$
 
 ```
   Error Budget Allocation (target: ε_total < 0.001)
@@ -1816,54 +1463,12 @@ SQLite 이력 저장
 <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="700"/>
 </div>
 
-## System Architecture
-
-<div align="center">
-
-```
-                    ┌─────────────────────────────────────┐
-                    │          Control Service             │
-                    │    (Django Web / QT GUI / Admin)     │
-                    └──────────────┬──────────────────────┘
-                                   │
-                    ┌──────────────▼──────────────────────┐
-                    │    Fleet Management System (FMS)     │
-                    │  Task Assignment │ Traffic Control   │
-                    └───────┬─────────────────┬───────────┘
-                            │                 │
-              ┌─────────────▼───┐   ┌────────▼──────────┐
-              │   Robot Arm     │   │  Mobile Robot      │
-              │   Controller    │   │  Controller        │
-              │                 │   │                    │
-              │ • MyCobot       │   │ • ArUco Marker     │
-              │ • Pick & Place  │   │ • PID Navigation   │
-              │ • OCR Detection │   │ • DQN Learning     │
-              │ • Calibration   │   │ • Vision Tracking  │
-              └────────┬────────┘   └────────┬───────────┘
-                       │                     │
-                       └──────────┬──────────┘
-                                  │
-                    ┌─────────────▼───────────────────────┐
-                    │         ROS2 Communication           │
-                    │    Topics │ Services │ Actions       │
-                    └─────────────────────────────────────┘
-```
-
-</div>
-
----
-
-<!-- Divider -->
-<div align="center">
-<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="700"/>
-</div>
-
 ## GitHub Stats
 
 <div align="center">
 
 <img width="49%" src="https://github-readme-stats.vercel.app/api?username=lee6147&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=a855f7&icon_color=6366f1&text_color=c9d1d9" />
-<img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=lee6147&theme=tokyonight&hide_border=true&background=0D1117&ring=a855f7&fire=06b6d4&currStreakLabel=06b6d4" />
+<img width="49%" src="https://streak-stats.demolab.com/?user=lee6147&theme=tokyonight&hide_border=true&background=0D1117&ring=a855f7&fire=06b6d4&currStreakLabel=06b6d4" />
 
 <br/>
 
