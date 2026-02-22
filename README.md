@@ -180,6 +180,613 @@ me = RoboticsEngineer()
 
 </div>
 
+<!-- Autonomous Driving Deep Dive -->
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="700"/>
+
+<br/>
+
+<!-- Section Banner -->
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:6366f1,50:a855f7,100:06b6d4&height=70&text=%F0%9F%9A%97%20Autonomous%20Driving%20%E2%80%94%20CBS%20%C3%97%20PID%20%C3%97%20MAPF&fontSize=22&fontColor=ffffff&fontAlignY=50" width="100%"/>
+
+<br/>
+
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=A855F7&center=true&vCenter=true&repeat=true&width=750&height=50&lines=%F0%9F%97%BA%EF%B8%8F+CBS+Conflict-Based+Search+%7C+Multi-Agent+Path+Finding;%F0%9F%8E%AE+PID+State+Machine+%7C+RotateToGoal+%E2%86%92+MoveToGoal+%E2%86%92+GoalReached;%F0%9F%94%84+3+AMR+Simultaneous+Collision-Free+Navigation;%E2%9A%A1+Real-time+Path+Replanning+%7C+Nav2+Replacement" alt="Typing SVG" /></a>
+
+<br/>
+
+<img src="https://raw.githubusercontent.com/addinedu-roscamp-5th/roscamp-repo-3/main/docs/images/Multi%20Robots%20Driving.gif" width="700"/>
+
+<sub><b>3 AMR Simultaneous Autonomous Driving — CBS Path Planning + PID Navigation</b></sub>
+
+<br/><br/>
+
+![CBS](https://img.shields.io/badge/CBS-Conflict_Based_Search-6366f1?style=for-the-badge)
+![PID](https://img.shields.io/badge/PID-Navigation_Controller-a855f7?style=for-the-badge)
+![MAPF](https://img.shields.io/badge/MAPF-3_Robots_Simultaneous-06b6d4?style=for-the-badge)
+![A*](https://img.shields.io/badge/A*-Time_Space_Search-22d3ee?style=for-the-badge)
+
+![ROS2](https://img.shields.io/badge/ROS2-Humble-22314E?style=flat-square&logo=ros&logoColor=white)
+![C++17](https://img.shields.io/badge/C%2B%2B17-00599C?style=flat-square&logo=cplusplus&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white)
+
+</div>
+
+---
+
+<details open>
+<summary><h4>🏗️ System Architecture</h4></summary>
+
+```mermaid
+flowchart TB
+    subgraph GUI["🖥️ GUI Layer"]
+        WEB["🌐 Web GUI\n(Customer Order)"]
+        QT["📊 Qt GUI\n(Admin Monitoring)"]
+    end
+
+    subgraph FMS["⚙️ FMS — Fleet Management System (C++)"]
+        RM["📋 Request\nManager"]
+        CBS["🗺️ Traffic\nPlanner\n(CBS)"]
+        AMR_A["🤖 AMR\nAdapter ×3"]
+        CORE["🧠 Core\nController"]
+
+        RM -->|"order assign"| CORE
+        CORE -->|"path request"| CBS
+        CBS -->|"collision-free path"| AMR_A
+        CORE --- AMR_A
+    end
+
+    subgraph NAV["🎮 Navigation Layer (Python)"]
+        PID["🎯 PID State\nMachine"]
+        VEL["📡 Velocity\nFilter"]
+    end
+
+    subgraph HW["🔧 Hardware"]
+        R1["🤖 AMR #1"]
+        R2["🤖 AMR #2"]
+        R3["🤖 AMR #3"]
+    end
+
+    WEB -->|"HTTP"| RM
+    QT -->|"realtime monitoring"| CORE
+    AMR_A -->|"Waypoint\nPublish"| PID
+    PID -->|"cmd_vel"| R1 & R2 & R3
+    VEL -->|"filtered_vel"| PID
+    R1 & R2 & R3 -->|"pose"| CORE
+
+    style GUI fill:#ede9fe,stroke:#6366f1,color:#312e81
+    style FMS fill:#fce7f3,stroke:#ec4899,color:#831843
+    style NAV fill:#ecfdf5,stroke:#10b981,color:#064e3b
+    style HW fill:#e0e7ff,stroke:#a855f7,color:#3b0764
+```
+
+<div align="center">
+
+```
+┌──────────────────────────────────────────────────────┐
+│                    12×22 Grid Map                    │
+│                 (Resolution: 0.1m/cell)              │
+│                                                      │
+│   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓   ▓ = Wall / Obstacle    │
+│   ▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░▓   ░ = Passable            │
+│   ▓▓▓▓░░░░░░░░░░░░░░░░░▓   📦 = Storage (6,2)      │
+│   ▓▓▓▓░░░░░░░░░░░░░░░░░▓   ⚡ = Charging Station    │
+│   ▓▓▓▓░░░░░░░░░░░░░░░░░▓                            │
+│   ▓▓▓▓▓▓▓▓▓▓░░░▓▓▓░░░░░▓   AMR: 3 robots           │
+│   ▓▓▓▓▓▓▓▓▓▓📦░░▓▓▓▓▓░░░▓   Arrival: ≤ 0.05m       │
+│   ▓▓▓▓▓▓▓▓▓▓░░░▓▓▓▓▓░░░▓                            │
+│   ▓▓▓▓▓▓▓▓▓▓░░░░░▓▓▓░⚡░▓   Charging: (9,8)(9,5)   │
+│   ▓▓▓▓▓▓▓▓▓▓░░░░░░░░░⚡░▓            (9,4)          │
+│   ▓▓▓▓▓▓▓▓▓▓░░░░░░░░░░░▓                            │
+│   ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                            │
+└──────────────────────────────────────────────────────┘
+```
+
+</div>
+
+</details>
+
+---
+
+<details open>
+<summary><h4>🗺️ CBS (Conflict-Based Search) — Multi-Robot Path Planning</h4></summary>
+
+<div align="center">
+
+> 다수의 로봇이 **동시에** 이동할 때 서로 충돌하지 않는 **최적 경로**를 계산하는 MAPF 알고리즘
+
+<br/>
+
+<table>
+<tr>
+<td width="50%" align="center">
+<img src="https://raw.githubusercontent.com/addinedu-roscamp-5th/roscamp-repo-3/main/docs/images/MAPF%20Examples.gif" width="100%"/>
+<br/>
+<sub><b>CBS Path Planning Simulation</b></sub>
+</td>
+<td width="50%" align="center">
+<img src="https://raw.githubusercontent.com/addinedu-roscamp-5th/roscamp-repo-3/main/docs/images/MAPF%20path%20examples.gif" width="100%"/>
+<br/>
+<sub><b>Multi-Robot Path Generation Result</b></sub>
+</td>
+</tr>
+</table>
+
+</div>
+
+<br/>
+
+```mermaid
+flowchart TD
+    START(["🚀 planPaths(starts, goals)"])
+
+    subgraph HL["🔷 High-Level: CBS Tree Search"]
+        INIT["Each robot: independent A* path"]
+        ROOT["Root Node\n(initial solution + cost)"]
+        PQ["Priority Queue\n(min cost first)"]
+        DETECT{"🔴 Conflict\nDetection"}
+        DONE(["✅ No Conflict!\nReturn Optimal Solution"])
+
+        BRANCH["Branch: Add Constraint"]
+        LEFT["📌 Left Child\nAgent₁ banned at loc/time"]
+        RIGHT["📌 Right Child\nAgent₂ banned at loc/time"]
+    end
+
+    subgraph LL["🔶 Low-Level: Time-Space A*"]
+        ASTAR["A* Search\n(x, y, timestep)"]
+        CONSTRAINT["Apply Constraints\nban specific loc at time"]
+        HEURISTIC["Manhattan Distance\nHeuristic"]
+    end
+
+    START --> INIT
+    INIT --> ROOT
+    ROOT --> PQ
+    PQ --> DETECT
+    DETECT -->|"conflict found"| BRANCH
+    DETECT -->|"no conflict"| DONE
+    BRANCH --> LEFT & RIGHT
+    LEFT --> ASTAR
+    RIGHT --> ASTAR
+    ASTAR --> CONSTRAINT
+    CONSTRAINT --> HEURISTIC
+    HEURISTIC --> PQ
+
+    style HL fill:#ede9fe,stroke:#6366f1,color:#312e81
+    style LL fill:#fff7ed,stroke:#f97316,color:#7c2d12
+    style DONE fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style START fill:#e0e7ff,stroke:#6366f1,color:#312e81
+```
+
+<br/>
+
+<div align="center">
+
+**⚡ Conflict Types**
+
+```
+  ┌─────────────────────────────┐    ┌─────────────────────────────┐
+  │      Vertex Conflict        │    │       Edge Conflict         │
+  │   (same time, same cell)    │    │     (swap positions)        │
+  │                             │    │                             │
+  │   t=3:  A → ● ← B          │    │   t=3:  A ●─────● B        │
+  │              ↑              │    │   t=4:  B ●─────● A        │
+  │         collision!          │    │        swap conflict!       │
+  │                             │    │                             │
+  │   path[i][t] == path[j][t]  │    │   path[i][t] == path[j][t+1]│
+  │                             │    │   path[j][t] == path[i][t+1]│
+  └─────────────────────────────┘    └─────────────────────────────┘
+```
+
+</div>
+
+<details>
+<summary><b>📜 CBS Core Implementation (C++) — Click to expand</b></summary>
+
+<br/>
+
+**High-Level CBS Search**
+```cpp
+std::vector<std::vector<Position>> TrafficPlanner::planPaths(
+    const std::vector<Position>& starts, const std::vector<Position>& goals)
+{
+    CBSNode root;
+    for (size_t i = 0; i < starts.size(); ++i)
+        root.paths.push_back(a_star(starts[i], goals[i], root.constraints, i));
+    root.cost = computeCost(root.paths);
+
+    std::priority_queue<CBSNode, std::vector<CBSNode>, std::greater<CBSNode>> open;
+    open.push(root);
+
+    while (!open.empty()) {
+        CBSNode current = open.top(); open.pop();
+        Conflict conflict = detectFirstConflict(current.paths);
+        if (conflict.agent1 == -1) return current.paths;  // ✅ Optimal!
+
+        for (int agent : {conflict.agent1, conflict.agent2}) {
+            CBSNode child = current;
+            child.constraints.push_back({agent, conflict.timestep, conflict.loc});
+            child.paths[agent] = a_star(starts[agent], goals[agent],
+                                         child.constraints, agent);
+            child.cost = computeCost(child.paths);
+            open.push(child);
+        }
+    }
+    return {};
+}
+```
+
+**Low-Level: Time-Space A\***
+```cpp
+std::vector<Position> TrafficPlanner::a_star(
+    const Position& start, const Position& goal,
+    const std::vector<Constraint>& constraints, int agent)
+{
+    // State space: (x, y, timestep) — key difference from standard A*
+    auto cmp = [](const Node* a, const Node* b) { return a->f_val() > b->f_val(); };
+    std::priority_queue<Node*, std::vector<Node*>, decltype(cmp)> open(cmp);
+
+    Node* start_node = new Node{start, 0, manhattan(start, goal), 0, nullptr};
+    open.push(start_node);
+
+    while (!open.empty()) {
+        Node* current = open.top(); open.pop();
+        if (current->pos == goal) return reconstructPath(current);
+
+        for (auto& [dx, dy] : directions) {  // 4-dir + wait
+            Position next = {current->pos.x + dx, current->pos.y + dy};
+            int next_t = current->timestep + 1;
+            if (!isValid(next) || isConstrained(agent, next, next_t, constraints))
+                continue;
+            open.push(new Node{next, current->g_val + 1,
+                               manhattan(next, goal), next_t, current});
+        }
+    }
+    return {};
+}
+```
+
+</details>
+
+</details>
+
+---
+
+<details open>
+<summary><h4>🎮 PID Navigation State Machine</h4></summary>
+
+<div align="center">
+
+> Nav2 대신 직접 구현 — **FMS Waypoint 단위 통합에 최적화**된 경량 제어기
+
+<br/>
+
+<img src="https://raw.githubusercontent.com/addinedu-roscamp-5th/roscamp-repo-3/main/docs/images/navigation%20state%20machine.gif" width="650"/>
+
+<sub><b>Navigation State Machine in action</b></sub>
+
+</div>
+
+<br/>
+
+```mermaid
+stateDiagram-v2
+    [*] --> IDLE : Start
+
+    IDLE --> RotateToGoal : 🎯 Waypoint received
+    RotateToGoal --> MoveToGoal : ✅ angle error < threshold
+    RotateToGoal --> RotateToGoal : 🔄 Angular PID
+    MoveToGoal --> RotateToFinal : ✅ distance < threshold
+    MoveToGoal --> MoveToGoal : 🔄 Linear + Angular PID
+    RotateToFinal --> GoalReached : ✅ final pose aligned
+    RotateToFinal --> RotateToFinal : 🔄 Angular PID
+    GoalReached --> IDLE : 📍 wait next WP
+    GoalReached --> RotateToGoal : 📍 next WP received
+
+    note right of RotateToGoal : In-place rotation\ntoward goal
+    note right of MoveToGoal : Drive + heading\ncorrection (dual PID)
+    note right of RotateToFinal : Fine-tune final\nheading angle
+```
+
+<br/>
+
+**P Control vs PID Control Comparison**
+
+<div align="center">
+
+<table>
+<tr>
+<td width="50%" align="center">
+<img src="https://raw.githubusercontent.com/addinedu-roscamp-5th/roscamp-repo-3/main/docs/images/P.gif" width="100%"/>
+<br/>
+<sub><b>❌ P control only</b> — overshoot, oscillation</sub>
+</td>
+<td width="50%" align="center">
+<img src="https://raw.githubusercontent.com/addinedu-roscamp-5th/roscamp-repo-3/main/docs/images/PID.gif" width="100%"/>
+<br/>
+<sub><b>✅ PID control</b> — stable convergence</sub>
+</td>
+</tr>
+</table>
+
+</div>
+
+<br/>
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/addinedu-roscamp-5th/roscamp-repo-3/main/docs/images/PID%20Control%20logic.png" width="600"/>
+
+</div>
+
+<br/>
+
+$$u(t) = \underbrace{K_p \cdot e(t)}_{\text{Proportional}} + \underbrace{K_i \int_0^t e(\tau)\,d\tau}_{\text{Integral}} + \underbrace{K_d \frac{de(t)}{dt}}_{\text{Derivative}}$$
+
+<br/>
+
+<div align="center">
+
+**🛡️ Anti-Windup: Integral Clamping**
+
+```
+         Without Anti-Windup                  With Anti-Windup
+
+  goal ─────    ╭──╮    ╭─╮                 ╭──────────────────
+               │  │   │ │                 │
+               │  ╰───╯ ╰──────          │
+               │   oscillation &           │   fast convergence ✅
+  ─────────────╯    overshoot ❌  ─────────╯
+
+  integral:  keeps growing → ∞             integral:  clamped to [-limit, +limit]
+```
+
+</div>
+
+<br/>
+
+**🎛️ Real-time PID Tuning**
+
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/addinedu-roscamp-5th/roscamp-repo-3/main/docs/images/PID%20tuning.gif" width="650"/>
+
+<sub><b>Qt GUI — adjust PID gains while the robot is running</b></sub>
+
+</div>
+
+<details>
+<summary><b>📜 PID Controller Code (Python) — Click to expand</b></summary>
+
+<br/>
+
+```python
+class MoveToGoalPID(Node):
+    def __init__(self):
+        super().__init__('move_to_goal_pid')
+        # ROS2 Parameter Server — live tuning enabled
+        self.declare_parameter('angular_kp', 2.0)
+        self.declare_parameter('angular_ki', 0.0)
+        self.declare_parameter('angular_kd', 0.1)
+        self.declare_parameter('linear_kp', 0.5)
+        self.declare_parameter('windup_limit', 1.0)
+        self.add_on_set_parameters_callback(self.param_callback)
+
+    def compute_angular_pid(self, error, dt):
+        self.integral += error * dt
+        self.integral = max(-self.windup_limit,          # Anti-Windup
+                       min(self.windup_limit, self.integral))
+        derivative = (error - self.prev_error) / dt
+        self.prev_error = error
+        return self.kp * error + self.ki * self.integral + self.kd * derivative
+
+    def param_callback(self, params):
+        """Change PID gains at runtime via ROS2 param set"""
+        for p in params:
+            setattr(self, p.name, p.value)
+        return SetParametersResult(successful=True)
+```
+
+```bash
+# Live tuning from terminal
+ros2 param set /move_to_goal_pid angular_kp 3.0
+ros2 param set /move_to_goal_pid angular_kd 0.2
+```
+
+</details>
+
+</details>
+
+---
+
+<details open>
+<summary><h4>🔄 AMR End-to-End Workflow</h4></summary>
+
+```mermaid
+sequenceDiagram
+    actor C as 🧑 Customer
+    participant W as 🌐 Web GUI
+    participant F as ⚙️ FMS Core
+    participant CBS as 🗺️ CBS Planner
+    participant AMR as 🤖 AMR
+    participant PID as 🎮 PID Controller
+
+    C->>W: 1️⃣ Order shoes
+    W->>F: 2️⃣ GUIRequest
+
+    Note over F: 🏆 BestRobotSelector<br/>battery + state based<br/>optimal robot selection
+
+    F->>CBS: 3️⃣ Path request (all active robots)
+
+    Note over CBS: 🗺️ CBS MAPF<br/>collision-free optimal<br/>paths for all robots
+
+    CBS-->>F: Collision-free paths
+    F->>AMR: 4️⃣ Waypoint list
+
+    loop Each Waypoint
+        AMR->>PID: Waypoint
+        PID->>PID: RotateToGoal → MoveToGoal → RotateToFinal
+        PID-->>AMR: GoalReached
+        AMR->>F: Arrival (dist < 0.05m)
+        F->>AMR: Next Waypoint
+    end
+
+    Note over AMR: 📦 Storage arrival<br/>Product loaded
+
+    F->>CBS: 5️⃣ Replan to destination
+    CBS-->>F: New path
+    F->>AMR: Move to customer
+
+    AMR-->>C: 6️⃣ Delivery complete ✅
+
+    Note over AMR: ⚡ Return to<br/>charging station
+```
+
+<br/>
+
+**AMR State Transitions**
+
+```mermaid
+stateDiagram-v2
+    [*] --> IDLE
+
+    IDLE --> BUSY : 📋 Order assigned
+
+    state BUSY {
+        [*] --> CheckPath
+        CheckPath --> MoveToStorage : 🗺️ CBS path received
+        MoveToStorage --> MoveToDestination : 📦 Product loaded
+        MoveToDestination --> [*] : 🎯 Customer reached
+    }
+
+    BUSY --> RETURN : ✅ Delivery done
+    RETURN --> IDLE : ⚡ Charging station
+
+    note right of IDLE : Standby\nCharging
+    note right of BUSY : Processing order\nWaypoint following
+    note right of RETURN : Returning to\ncharging station
+```
+
+<details>
+<summary><b>📜 AMR Adapter Core Code (C++) — Click to expand</b></summary>
+
+<br/>
+
+```cpp
+// 🎯 Waypoint arrival detection
+bool AmrAdapter::handleWaypointArrival(const pose2f& pos) {
+    Position wp = getCurrentWayPoint();
+    float dist = std::hypot(pos.x - wp.x, pos.y - wp.y);
+    if (dist <= 0.05f) {           // ARRIVAL_TOLERANCE
+        sendNextpoint();            // → proceed to next waypoint
+    }
+    return true;
+}
+
+// 📍 Send next waypoint
+void AmrAdapter::sendNextpoint() {
+    if (isGoal()) { MoveToDone(); return; }   // final destination?
+    incrementWaypointIndex();
+    Position wp = getCurrentWayPoint();
+    core->publishNavGoal(robot_id, wp);       // ROS2 topic publish
+}
+
+// 🔄 State transition on completion
+void AmrAdapter::MoveToDone() {
+    switch (step_) {
+        case MoveTo_Storage:                   // arrived at storage
+            SendPickupRequest();               // → request robot arm
+            SetAmrStep(MoveTo_dst);            // → next: go to customer
+            break;
+        case MoveTo_charging_station:          // arrived at charger
+            SetAmrState(IDLE);                 // → back to standby
+            break;
+    }
+}
+```
+
+</details>
+
+</details>
+
+---
+
+<div align="center">
+
+**🏆 Technical Achievements**
+
+<table>
+<tr>
+<td align="center" width="20%">
+
+### 🗺️
+**CBS MAPF**
+3 AMR
+Collision-free
+Path Planning
+
+</td>
+<td align="center" width="20%">
+
+### 🎮
+**PID Control**
+Anti-Windup
+Real-time Tuning
+Stable Convergence
+
+</td>
+<td align="center" width="20%">
+
+### 🔄
+**Live Replan**
+Dynamic path
+recalculation on
+robot join/return
+
+</td>
+<td align="center" width="20%">
+
+### ⚡
+**Nav2 Replace**
+Lightweight
+FMS-optimized
+Waypoint tracking
+
+</td>
+<td align="center" width="20%">
+
+### 🧠
+**FMS Core**
+C++ Thread Pool
+Multi-robot
+State Machine
+
+</td>
+</tr>
+</table>
+
+<br/>
+
+**💡 Key Takeaways**
+
+</div>
+
+| | Topic | Insight |
+|:---:|:---:|:---|
+| 🗺️ | **MAPF** | Multi-robot path planning requires **time-axis** consideration; CBS guarantees optimality while remaining practical |
+| 🎛️ | **PID Tuning** | Theoretical gains vs real-robot optimal gains differ greatly; **real-time tuning infrastructure** is essential |
+| 🔧 | **Integration** | Interface design between path planner → controller → hardware is **critical** for system stability |
+| 🤖 | **Nav2 vs Custom** | Evaluated framework trade-offs; chose **project-fit over convenience** |
+
+<div align="center">
+
+<br/>
+
+[![Detail](https://img.shields.io/badge/📄_Detailed_README-Autonomous_Driving_Deep_Dive-6366f1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/lee6147/Undergraduate-research-student)
+[![Repo](https://img.shields.io/badge/🔗_Project_Repo-roscamp--repo--3-a855f7?style=for-the-badge&logo=github&logoColor=white)](https://github.com/addinedu-roscamp-5th/roscamp-repo-3)
+
+</div>
+
 ---
 
 <!-- Project 2: loc_bot -->
@@ -231,26 +838,206 @@ me = RoboticsEngineer()
 <br/>
 
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=16&duration=2500&pause=1000&color=22D3EE&center=true&vCenter=true&repeat=true&width=750&height=45&lines=%E2%9A%9B%EF%B8%8F+BQB+%3D+Buried+Quantum+Barrier;%F0%9F%94%AC+Si-28+%2B+P-31+Donor+Spin+Qubit+Array;%F0%9F%8E%AF+16%C3%9716+%E2%86%92+32%C3%9732+Scalable+Architecture;%F0%9F%A7%AC+22nm+FD-SOI+Foundry+Process" alt="Quantum Typing" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=16&duration=2500&pause=1000&color=22D3EE&center=true&vCenter=true&repeat=true&width=750&height=50&lines=%E2%9A%9B%EF%B8%8F+BQB+%3D+Buried+Quantum+Barrier;%F0%9F%94%AC+Si-28+%2B+P-31+Donor+Spin+Qubit+Array;%F0%9F%8E%AF+16%C3%9716+%E2%86%92+32%C3%9732+Scalable+Architecture;%F0%9F%A7%AC+22nm+FD-SOI+Foundry+Process" alt="Quantum Typing" />
 </a>
 
-</div>
-
-> **BQB(Buried Quantum Barrier) 기반 반도체 큐비트 대규모 어레이 기술을 인터랙티브 웹 플랫폼으로 구축한 연구 프로젝트**
-
-<div align="center">
+<br/>
 
 ![Platform](https://img.shields.io/badge/Platform-239KB_Single_File_React_App-06b6d4?style=for-the-badge)
 ![Modules](https://img.shields.io/badge/Modules-4_Interactive_Guides-a855f7?style=for-the-badge)
 ![Visualizations](https://img.shields.io/badge/Visualizations-7_Quantum_Concepts-6366f1?style=for-the-badge)
 
+![Si-28](https://img.shields.io/badge/Si--28-Isotopically_Purified-06b6d4?style=flat-square)
+![P-31](https://img.shields.io/badge/P--31-Donor_Spin_Qubit-a855f7?style=flat-square)
+![22nm](https://img.shields.io/badge/22nm-FD--SOI_Foundry-6366f1?style=flat-square)
+![Fidelity](https://img.shields.io/badge/F1q-≥_99.9%25-22d3ee?style=flat-square)
+
 </div>
+
+> **BQB(Buried Quantum Barrier) 기반 반도체 큐비트 대규모 어레이 기술을 인터랙티브 웹 플랫폼으로 구축한 연구 프로젝트**
+
+---
+
+<details open>
+<summary><h4>⚛️ BQB Fabrication Architecture</h4></summary>
+
+```mermaid
+flowchart TD
+    subgraph SUBSTRATE["🔬 Substrate Preparation"]
+        SI["Si-28\nIsotopically Purified"]
+        IMPLANT["P-31 Donor\nIon Implantation"]
+    end
+
+    subgraph BQB_LAYER["⚛️ BQB Template Layer"]
+        BARRIER["Buried Quantum\nBarrier Formation"]
+        TRIPLE["Triple-Wall QBQ\nProtection"]
+        STI["STI 외벽\n(물리적 격리)"]
+        T3["T3 전기 차폐\n(전기적 격리)"]
+        BQBB["BQB-B 매립 장벽\n(양자 격리)"]
+    end
+
+    subgraph CLOSED["🔄 Closed-Loop Process"]
+        GEN["Generate\n(패턴 형성)"]
+        VER["Verify\n(품질 검사)"]
+        COR["Correct\n(선택적 보정)"]
+    end
+
+    subgraph CRYO["🧊 Cryogenic Control"]
+        DDIC["DD-IC Controller\n(77K Operation)"]
+        FANOUT["Fan-out √N\n256 → 16 Lines"]
+    end
+
+    subgraph ARRAY["💎 Qubit Array"]
+        Q16["16×16 = 256\nQubits"]
+        Q32["32×32 = 1024\nQubits"]
+    end
+
+    SI --> IMPLANT
+    IMPLANT --> BARRIER
+    BARRIER --> TRIPLE
+    TRIPLE --> STI & T3 & BQBB
+    STI & T3 & BQBB --> GEN
+    GEN --> VER
+    VER -->|"❌ Defect"| COR
+    COR --> VER
+    VER -->|"✅ Pass"| DDIC
+    DDIC --> FANOUT
+    FANOUT --> Q16
+    Q16 -->|"Scale-up"| Q32
+
+    style SUBSTRATE fill:#e0f2fe,stroke:#0ea5e9,color:#0c4a6e
+    style BQB_LAYER fill:#ede9fe,stroke:#8b5cf6,color:#3b0764
+    style CLOSED fill:#fef3c7,stroke:#d97706,color:#78350f
+    style CRYO fill:#fce7f3,stroke:#ec4899,color:#831843
+    style ARRAY fill:#dcfce7,stroke:#22c55e,color:#14532d
+```
+
+<br/>
+
+<div align="center">
+
+**🛡️ Triple-Wall QBQ Protection Structure**
+
+```
+  ┌─────────────────────────────────────────────────────────────┐
+  │                    Triple-Wall QBQ 보호 구조                  │
+  │                                                              │
+  │   ┌──── STI (Shallow Trench Isolation) ────────────┐        │
+  │   │                                                 │        │
+  │   │  ┌──── T3 Electric Shield ────────────┐        │        │
+  │   │  │                                     │        │        │
+  │   │  │  ┌──── BQB-B Buried Barrier ───┐   │        │        │
+  │   │  │  │                              │   │        │        │
+  │   │  │  │    ⚛️  P-31 Donor            │   │        │        │
+  │   │  │  │    Spin Qubit (전자 스핀)     │   │        │        │
+  │   │  │  │                              │   │        │        │
+  │   │  │  └──────────────────────────────┘   │        │        │
+  │   │  │   🟣 양자 격리 (quantum isolation)   │        │        │
+  │   │  └─────────────────────────────────────┘        │        │
+  │   │    🔵 전기적 격리 (electrical isolation)          │        │
+  │   └─────────────────────────────────────────────────┘        │
+  │      🟢 물리적 격리 (physical isolation)                       │
+  └─────────────────────────────────────────────────────────────┘
+```
+
+</div>
+
+</details>
+
+---
+
+<details open>
+<summary><h4>📊 Yield Scaling & Fidelity Targets</h4></summary>
+
+<br/>
+
+$$Y = p^{N^2} \quad \Rightarrow \quad \text{Overlay} \leq 15\text{nm required for } p \to 1$$
+
+$$F_{1q} \geq 0.999 \qquad F_{2q} \geq 0.99 \qquad T_2 \geq 1\text{s}$$
+
+<br/>
+
+```mermaid
+stateDiagram-v2
+    [*] --> Generate : Start Fabrication Layer
+
+    Generate --> Verify : Pattern Complete
+    Verify --> Correct : ❌ Defect (overlay > 15nm)
+    Verify --> NextLayer : ✅ QC Pass
+    Correct --> Verify : Re-inspect
+    NextLayer --> Generate : Next Layer
+    NextLayer --> [*] : ✅ All Layers Complete
+
+    note right of Generate : Ion Implant\nLithography\nEtch
+    note right of Verify : Overlay ≤ 15nm\nFidelity check
+    note right of Correct : Selective repair\nRe-alignment
+```
+
+<br/>
+
+<div align="center">
+
+**DD-IC Cryogenic Controller Architecture**
+
+```
+  ┌─────────────────────────────────────────────────────────┐
+  │                Room Temperature (300K)                    │
+  │   ┌─────────────────────────────────────────────┐       │
+  │   │  Classical Control Computer                  │       │
+  │   │  256 qubit addresses                         │       │
+  │   └────────────────────┬────────────────────────┘       │
+  │                        │ 256 lines                       │
+  ├════════════════════════╪════════════════════════════════╡
+  │                 77K Stage                                │
+  │   ┌────────────────────▼────────────────────────┐       │
+  │   │          DD-IC Controller                    │       │
+  │   │     Fan-out: √N compression                 │       │
+  │   │     256 lines → 16 lines                    │       │
+  │   └────────────────────┬────────────────────────┘       │
+  │                        │ 16 lines                        │
+  ├════════════════════════╪════════════════════════════════╡
+  │                 ~20mK Stage (Dilution Fridge)            │
+  │   ┌────────────────────▼────────────────────────┐       │
+  │   │        Qubit Array (16×16 / 32×32)           │       │
+  │   │     Si-28 + P-31 Donor Spin Qubits           │       │
+  │   │     T₂ ≥ 1s coherence time                   │       │
+  │   └─────────────────────────────────────────────┘       │
+  └─────────────────────────────────────────────────────────┘
+```
+
+</div>
+
+<br/>
+
+<div align="center">
+
+**Scaling Roadmap**
+
+```
+  Current State                          Target
+  ┌──────────┐    22nm FD-SOI     ┌──────────────────┐
+  │ 6~12     │    BQB Process     │   16×16 (256)    │
+  │ Qubits   │ ──────────────►    │   → 32×32 (1024) │
+  │ (Linear) │    Triple-Wall     │   Qubit Array    │
+  └──────────┘    Closed-Loop     └──────────────────┘
+
+  Overlay ≤ 15nm │ F1q ≥ 0.999 │ F2q ≥ 0.99 │ T2 ≥ 1s
+```
+
+</div>
+
+</details>
+
+---
+
+<details open>
+<summary><h4>🎯 Interactive Quantum Visualization Platform</h4></summary>
 
 <table>
 <tr>
 <td width="50%">
 
-**Quantum World Explorer - 7가지 양자역학 시각화**
+**Quantum World Explorer — 7가지 양자역학 시각화**
 
 | # | Concept | Visualization |
 |:-:|:--------|:-------------|
@@ -265,7 +1052,7 @@ me = RoboticsEngineer()
 </td>
 <td width="50%">
 
-**BQB Guides - 3단계 난이도별 학습**
+**BQB Guides — 3단계 난이도별 학습**
 
 | Level | Content | Scale |
 |:------|:--------|:------|
@@ -327,20 +1114,117 @@ SVG Animation + Interactive Diagrams
 </tr>
 </table>
 
+<details>
+<summary><b>📜 Qubit Array Scaling Mathematics — Click to expand</b></summary>
+
+<br/>
+
+**수율 스케일링 법칙 (Yield Scaling Law)**
+
+$$Y_{\text{array}} = p^{N^2}$$
+
+| Array Size | Qubits | Required $p$ for $Y > 50\%$ |
+|:---:|:---:|:---:|
+| 4×4 | 16 | $p > 0.957$ |
+| 8×8 | 64 | $p > 0.989$ |
+| 16×16 | 256 | $p > 0.9973$ |
+| 32×32 | 1024 | $p > 0.99932$ |
+
+> N이 커질수록 **단일 큐비트 수율 p**가 1에 극도로 가까워야 함 — 이것이 Triple-Wall과 Closed-Loop이 필수인 이유
+
+<br/>
+
+**Error Budget 분해**
+
+$$\varepsilon_{\text{total}} = \varepsilon_{\text{gate}} + \varepsilon_{\text{readout}} + \varepsilon_{\text{crosstalk}} + \varepsilon_{\text{decoherence}}$$
+
+```
+  Error Budget Allocation (target: ε_total < 0.001)
+  ┌─────────────────────────────────────────────────────┐
+  │ Gate Error      │████████░░░░░│ 0.04%  (40% budget) │
+  │ Readout Error   │██████░░░░░░│ 0.03%  (30% budget) │
+  │ Crosstalk       │████░░░░░░░░│ 0.02%  (20% budget) │
+  │ Decoherence     │██░░░░░░░░░░│ 0.01%  (10% budget) │
+  └─────────────────────────────────────────────────────┘
+  Total: 0.10% → F1q = 99.9% ✅
+```
+
+</details>
+
+</details>
+
+---
+
 <div align="center">
 
-**Research Goal: Scalable Qubit Array**
+**🏆 Technical Achievements**
 
-```
- Current State                          Target
- ┌──────────┐    22nm FD-SOI     ┌──────────────────┐
- │ 6~12     │    BQB Process     │   16×16 (256)    │
- │ Qubits   │ ──────────────►    │   → 32×32 (1024) │
- │ (Linear) │    Triple-Wall     │   Qubit Array    │
- └──────────┘    Closed-Loop     └──────────────────┘
+<table>
+<tr>
+<td align="center" width="20%">
 
- Overlay ≤ 15nm │ F1q ≥ 0.999 │ F2q ≥ 0.99 │ T2 ≥ 1s
-```
+### ⚛️
+**BQB Architecture**
+Triple-Wall QBQ
+Qubit Protection
+Si-28 + P-31
+
+</td>
+<td align="center" width="20%">
+
+### 📐
+**Yield Scaling**
+p^N² Law
+Overlay ≤ 15nm
+Closed-Loop QC
+
+</td>
+<td align="center" width="20%">
+
+### 🧊
+**DD-IC Control**
+77K Cryogenic
+√N Fan-out
+256 → 16 Lines
+
+</td>
+<td align="center" width="20%">
+
+### 🎓
+**Learning Platform**
+7 Visualizations
+3-Level Guides
+239KB React App
+
+</td>
+<td align="center" width="20%">
+
+### 🎯
+**Fidelity Target**
+F1q ≥ 99.9%
+F2q ≥ 99%
+T2 ≥ 1s
+
+</td>
+</tr>
+</table>
+
+<br/>
+
+**💡 Key Takeaways**
+
+</div>
+
+| | Topic | Insight |
+|:---:|:---:|:---|
+| ⚛️ | **Scalability** | 큐비트 수가 늘수록 수율이 지수적으로 떨어짐 — **p^N² law**에 기반한 공정 정밀도가 핵심 |
+| 🛡️ | **Triple-Wall** | 물리적·전기적·양자적 3중 격리 없이는 대규모 어레이에서 **crosstalk** 제어 불가 |
+| 🧊 | **Cryogenics** | 상온→77K→20mK 3단계 온도에서 **Fan-out √N** 압축이 배선 병목 해결의 열쇠 |
+| 🎓 | **Visualization** | 추상적 양자 개념을 **인터랙티브 웹 시각화**로 변환하여 학습 효과 극대화 |
+
+<div align="center">
+
+<br/>
 
 ![Quantum](https://img.shields.io/badge/Quantum_Computing-Silicon_Spin_Qubit-06b6d4?style=flat-square)
 ![Scale](https://img.shields.io/badge/Target-1024_Qubits-a855f7?style=flat-square)
@@ -355,7 +1239,6 @@ SVG Animation + Interactive Diagrams
 </div>
 
 ---
-
 <!-- Project 4: R&D Center -->
 <div align="center">
 
@@ -379,6 +1262,7 @@ SVG Animation + Interactive Diagrams
 
 ---
 
+
 <!-- Claude Code Divider -->
 <div align="center">
 <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="700"/>
@@ -394,70 +1278,495 @@ SVG Animation + Interactive Diagrams
 <br/>
 
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=18&duration=3000&pause=1500&color=D97706&center=true&vCenter=true&repeat=true&width=700&height=50&lines=%E2%9A%A1+Claude+Code+%3D+%EB%82%B4+%EA%B0%9C%EB%B0%9C+%ED%8C%8C%ED%8A%B8%EB%84%88;%F0%9F%A4%96+Telegram+Bot+%E2%86%92+%EC%96%B4%EB%94%94%EC%84%9C%EB%93%A0+%EC%9B%90%EA%B2%A9+%EC%BD%94%EB%94%A9;%F0%9F%9B%A0%EF%B8%8F+%EC%BD%94%EB%93%9C+%EC%9E%91%EC%84%B1+%7C+%EB%A6%AC%EB%B7%B0+%7C+%EB%94%94%EB%B2%84%EA%B7%B8+%7C+%EC%9E%90%EB%8F%99%ED%99%94" alt="Claude Typing" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=18&duration=3000&pause=1500&color=D97706&center=true&vCenter=true&repeat=true&width=700&height=50&lines=%E2%9A%A1+Claude+Code+%3D+%EB%82%B4+%EA%B0%9C%EB%B0%9C+%ED%8C%8C%ED%8A%B8%EB%84%88;%F0%9F%A4%96+Telegram+Bot+%E2%86%92+%EC%96%B4%EB%94%94%EC%84%9C%EB%93%A0+%EC%9B%90%EA%B2%A9+%EC%BD%94%EB%94%A9;%F0%9F%9B%A0%EF%B8%8F+%EC%BD%94%EB%93%9C+%EC%9E%91%EC%84%B1+%7C+%EB%A6%AC%EB%B7%B0+%7C+%EB%94%94%EB%B2%84%EA%B7%B8+%7C+%EC%9E%90%EB%8F%99%ED%99%94;%F0%9F%93%9A+JSX+%E2%86%92+Obsidian+HTML+%EC%9E%90%EB%8F%99+%EB%B3%80%ED%99%98" alt="Claude Typing" />
 </a>
+
+<br/>
+
+![Claude Code](https://img.shields.io/badge/Claude_Code-AI_Development_Partner-D97706?style=for-the-badge&logo=anthropic&logoColor=white)
+![loc_bot](https://img.shields.io/badge/loc__bot-Telegram_Remote_Dev-B45309?style=for-the-badge&logo=telegram&logoColor=white)
+![Obsidian](https://img.shields.io/badge/Obsidian-HTML_Pipeline-92400E?style=for-the-badge&logo=obsidian&logoColor=white)
 
 </div>
 
 > **Claude Code는 단순한 도구가 아닌, 내 개발 워크플로우의 핵심 파트너입니다.**
 
+---
+
+<details open>
+<summary><h4>🤖 loc_bot — Telegram Remote Development System</h4></summary>
+
+<div align="center">
+
+> 어디서든 Telegram으로 Claude Code CLI를 원격 제어하여 코드를 작성·리뷰·디버그하는 시스템
+
+</div>
+
+<br/>
+
+```mermaid
+sequenceDiagram
+    actor U as 👤 User (Mobile/PC)
+    participant T as 📱 Telegram
+    participant B as 🤖 loc_bot (Python)
+    participant DB as 🗄️ SQLite
+    participant C as ⚡ Claude Code CLI
+    participant P as 📁 Project Files
+
+    U->>T: 메시지 / 이미지 전송
+    T->>B: Update received
+
+    Note over B: 🔐 User Authentication<br/>Authorized users only
+
+    B->>DB: 프로젝트 컨텍스트 로드
+    B->>C: subprocess 실행 (--project)
+
+    loop Real-time Streaming
+        C->>P: 코드 작성 / 수정 / 분석
+        C-->>B: stdout chunk
+        B-->>T: 📊 Status Card 업데이트
+        T-->>U: 실시간 진행 상황
+    end
+
+    C-->>B: ✅ 작업 완료
+    B->>DB: 히스토리 + 실수 로그 저장
+    B-->>T: 📋 최종 결과 전송
+    T-->>U: 결과 확인
+```
+
+<br/>
+
 <table>
 <tr>
 <td width="50%">
 
-### loc_bot - 원격 개발 자동화
+**Core Features**
 ```
-Telegram 메시지
+📱 Telegram Remote Control
+├── /register — 프로젝트 등록
+├── /use — 프로젝트 전환
+├── /scan — 자동 탐색
+├── /history — 작업 이력
+└── /mistakes — 실수 로그
+
+🔄 Real-time Streaming
+├── Status Card (진행률)
+├── stdout chunk 전달
+└── 긴 출력 자동 분할
+
+📎 Attachment Support
+├── 이미지 → Claude Vision
+├── 파일 → 컨텍스트 전달
+└── 스크린샷 디버깅
+```
+
+</td>
+<td width="50%">
+
+**Architecture**
+```
+Telegram API
     ↓
 loc_bot (Python)
+├── auth_manager.py    — 사용자 인증
+├── project_manager.py — 다중 프로젝트
+├── claude_runner.py   — CLI subprocess
+├── stream_handler.py  — 실시간 스트리밍
+├── history_db.py      — SQLite 히스토리
+└── mistake_logger.py  — 실수 기록
     ↓
 Claude Code CLI
     ↓
 코드 작성 / 수정 / 리뷰
     ↓
-실시간 결과 스트리밍
-    ↓
-Telegram으로 응답
+실시간 결과 → Telegram
 ```
-
-어디서든 Telegram으로 Claude Code를 제어하여
-프로젝트 코드를 작성하고 리뷰받는 시스템을 직접 구축했습니다.
-
-</td>
-<td width="50%">
-
-### Obsidian HTML Viewer - 지식 시각화
-```
-JSX/TSX 소스
-    ↓
-Claude Code + v4.4 프롬프트
-    ↓
-Obsidian 호환 단일 HTML 변환
-    ↓
-Custom Frames 자동 등록
-    ↓
-Obsidian에서 인터랙티브 가이드 열람
-```
-
-Claude Code를 활용하여 React 기반 인터랙티브 가이드를
-Obsidian에서 바로 열 수 있는 HTML로 자동 변환하는
-워크플로우를 설계했습니다.
 
 </td>
 </tr>
 </table>
 
+<details>
+<summary><b>📜 loc_bot Core Implementation (Python) — Click to expand</b></summary>
+
+<br/>
+
+```python
+class ClaudeCodeBot:
+    def __init__(self):
+        self.app = Application.builder().token(BOT_TOKEN).build()
+        self.db = HistoryDB("work_history.db")
+        self.projects = ProjectManager()
+
+    async def handle_message(self, update, context):
+        user_id = update.effective_user.id
+        if not self.is_authorized(user_id):
+            return  # 🔐 인증된 사용자만
+
+        project = self.projects.get_active(user_id)
+        prompt = update.message.text
+
+        # 📎 이미지 첨부 처리
+        if update.message.photo:
+            image_path = await self.download_image(update)
+            prompt = f"[Image: {image_path}] {prompt}"
+
+        # ⚡ Claude Code CLI 실행 + 스트리밍
+        status_msg = await update.message.reply_text("🔄 Processing...")
+        async for chunk in self.run_claude(project, prompt):
+            await status_msg.edit_text(
+                f"📊 **Status Card**\n```\n{chunk}\n```",
+                parse_mode="Markdown"
+            )
+
+        # 🗄️ 히스토리 저장
+        self.db.save(user_id, project, prompt, chunk)
+```
+
+```python
+class ProjectManager:
+    """다중 프로젝트 관리 — 프로젝트 간 자유 전환"""
+
+    def register(self, user_id, path, name):
+        """프로젝트 등록 (/register)"""
+        self.db.insert(user_id, path, name)
+
+    def scan(self, base_path):
+        """Git 프로젝트 자동 탐색 (/scan)"""
+        return [p for p in Path(base_path).rglob(".git")]
+
+    def use(self, user_id, name):
+        """활성 프로젝트 전환 (/use)"""
+        self.active[user_id] = self.db.get(user_id, name)
+```
+
+</details>
+
+</details>
+
+---
+
+<details open>
+<summary><h4>📚 Obsidian HTML Pipeline — Knowledge Visualization</h4></summary>
+
 <div align="center">
 
-### Claude Code 활용 영역
+> JSX/TSX React 앱을 Obsidian에서 바로 열 수 있는 단일 HTML로 자동 변환하는 파이프라인
 
-![Code Generation](https://img.shields.io/badge/Code_Generation-자동_코드_작성-D97706?style=for-the-badge)
-![Code Review](https://img.shields.io/badge/Code_Review-실시간_리뷰-B45309?style=for-the-badge)
-![Debugging](https://img.shields.io/badge/Debugging-버그_추적_&_수정-92400E?style=for-the-badge)
+</div>
 
-![Refactoring](https://img.shields.io/badge/Refactoring-코드_개선-D97706?style=for-the-badge)
-![Documentation](https://img.shields.io/badge/Documentation-문서_자동화-B45309?style=for-the-badge)
-![Remote Dev](https://img.shields.io/badge/Remote_Dev-Telegram_원격_개발-92400E?style=for-the-badge)
+<br/>
+
+```mermaid
+flowchart LR
+    subgraph SOURCE["📝 Source"]
+        JSX["JSX/TSX\nReact App"]
+        PROMPT["v4.4 통합지침서\n(변환 프롬프트)"]
+    end
+
+    subgraph CONVERT["🔄 Claude Code Conversion"]
+        ANALYZE["소스 분석\n의존성 파악"]
+        INLINE["CSS/JS\nInline 통합"]
+        SINGLE["단일 HTML\n파일 생성"]
+    end
+
+    subgraph OBSIDIAN["📚 Obsidian Integration"]
+        CF["Custom Frames\n(WebView)"]
+        FETCH["fetch() +\nbase tag 주입"]
+        SRCDOC["srcdoc\n렌더링"]
+    end
+
+    JSX --> ANALYZE
+    PROMPT --> ANALYZE
+    ANALYZE --> INLINE
+    INLINE --> SINGLE
+    SINGLE --> CF
+    CF --> FETCH
+    FETCH --> SRCDOC
+
+    style SOURCE fill:#fff7ed,stroke:#f97316,color:#7c2d12
+    style CONVERT fill:#fef3c7,stroke:#d97706,color:#78350f
+    style OBSIDIAN fill:#ede9fe,stroke:#8b5cf6,color:#3b0764
+```
+
+<br/>
+
+<div align="center">
+
+**🛡️ WebView iframe Security Bypass Pattern**
+
+```
+  ❌ 문제: WebView 중첩 iframe에서 file:// src 로드 차단
+
+  ┌──────────────────────────────────────────────────────┐
+  │  Custom Frames (Electron WebView)                     │
+  │                                                       │
+  │   <iframe src="file://app.html">                      │
+  │     └── <iframe src="file://guide.html"> ← 차단! ❌  │
+  │           (중첩 file:// 프로토콜 거부)                 │
+  │                                                       │
+  └──────────────────────────────────────────────────────┘
+
+  ✅ 해결: fetch() + <base> 태그 주입 + srcdoc
+
+  ┌──────────────────────────────────────────────────────┐
+  │  Custom Frames (Electron WebView)                     │
+  │                                                       │
+  │   1. fetch("./guide.html")    ← 상대경로 fetch 허용  │
+  │   2. HTML 텍스트 로드                                  │
+  │   3. <base href="file://..."> 주입                    │
+  │   4. <iframe srcDoc={html}>   ← 정상 렌더링! ✅      │
+  │                                                       │
+  └──────────────────────────────────────────────────────┘
+```
+
+</div>
+
+<br/>
+
+<table>
+<tr>
+<td width="50%">
+
+**변환 프로세스**
+```
+1. JSX/TSX 소스 분석
+   ├── 컴포넌트 구조 파악
+   └── 외부 의존성 목록화
+
+2. 의존성 제거 & 인라인화
+   ├── CDN → inline script
+   ├── import → 번들링
+   └── 이미지 → base64 인코딩
+
+3. CSS/JS 단일 파일 통합
+   ├── <style> 태그 통합
+   └── <script> 태그 통합
+
+4. Obsidian 호환성 검증
+   └── file:// 프로토콜 테스트
+
+5. Custom Frames 자동 등록
+   └── data.json 업데이트
+```
+
+</td>
+<td width="50%">
+
+**핵심 설정 (data.json)**
+```json
+{
+  "frames": [{
+    "url": "file:///path/to/app.html",
+    "displayName": "BQB Guide",
+    "forceIframe": false,
+    "padding": 0
+  }]
+}
+```
+
+**Critical Settings:**
+```
+forceIframe: false
+  → WebView 사용 (JS 실행 가능)
+  → iframe 대신 Electron WebView
+
+padding: 0
+  → 콘텐츠 잘림 방지
+  → root 레벨 속성
+
+⚠️ 수정 후 Obsidian 완전 재시작 필수
+  → 메모리에 캐시된 설정 갱신
+```
+
+</td>
+</tr>
+</table>
+
+</details>
+
+---
+
+<details open>
+<summary><h4>⚡ Claude Code Development Workflow</h4></summary>
+
+```mermaid
+flowchart TD
+    subgraph INPUT["📥 Input Channels"]
+        LOCAL["🖥️ Local Terminal\n(직접 실행)"]
+        REMOTE["📱 Telegram\n(loc_bot 원격)"]
+    end
+
+    subgraph CLAUDE["⚡ Claude Code Engine"]
+        READ["📖 코드 분석\n& 컨텍스트 이해"]
+        GEN["✏️ 코드 생성\n& 수정"]
+        REVIEW["🔍 리뷰\n& 디버그"]
+        REFACTOR["🔄 리팩토링\n& 최적화"]
+    end
+
+    subgraph OUTPUT["📤 Output"]
+        CODE["💻 프로젝트 코드\n(ROS2/C++/Python)"]
+        HTML["📚 Obsidian HTML\n(인터랙티브 가이드)"]
+        DOCS["📄 README &\n문서 자동 생성"]
+        GIT["🔀 Git 커밋\n& PR 생성"]
+    end
+
+    LOCAL --> READ
+    REMOTE --> READ
+    READ --> GEN
+    READ --> REVIEW
+    GEN --> REFACTOR
+    REVIEW --> REFACTOR
+    REFACTOR --> CODE
+    REFACTOR --> HTML
+    REFACTOR --> DOCS
+    CODE --> GIT
+
+    style INPUT fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style CLAUDE fill:#fef3c7,stroke:#d97706,color:#78350f
+    style OUTPUT fill:#dcfce7,stroke:#22c55e,color:#14532d
+```
+
+<br/>
+
+<div align="center">
+
+**Claude Code 활용 프로젝트 매트릭스**
+
+</div>
+
+| Project | Claude Code 역할 | 주요 활용 |
+|:---:|:---|:---|
+| **RoboCallee** | FMS C++ 코드 분석, README 생성 | 자율주행 아키텍처 문서화 |
+| **Quantum BQB** | 4개 인터랙티브 가이드 전체 생성 | JSX → Obsidian HTML 변환 |
+| **loc_bot** | Telegram Bot 전체 개발 | Claude Code로 Claude Code Bot 개발 |
+| **Profile README** | 1900줄+ 프로필 자동 생성 | Mermaid, LaTeX, ASCII Art |
+
+<br/>
+
+<table>
+<tr>
+<td width="25%" align="center">
+
+### ✏️
+**Code Generation**
+프로젝트 코드
+자동 작성
+ROS2 / C++ / Python
+
+</td>
+<td width="25%" align="center">
+
+### 🔍
+**Code Review**
+실시간 리뷰
+버그 탐지 & 수정
+최적화 제안
+
+</td>
+<td width="25%" align="center">
+
+### 📚
+**HTML Pipeline**
+JSX → Obsidian
+자동 변환
+239KB 단일 파일
+
+</td>
+<td width="25%" align="center">
+
+### 📱
+**Remote Dev**
+Telegram 원격
+어디서든 코딩
+실시간 스트리밍
+
+</td>
+</tr>
+</table>
+
+</details>
+
+---
+
+<div align="center">
+
+**🏆 Technical Achievements**
+
+<table>
+<tr>
+<td align="center" width="20%">
+
+### 📱
+**loc_bot**
+Telegram 원격 제어
+실시간 스트리밍
+다중 프로젝트 관리
+
+</td>
+<td align="center" width="20%">
+
+### 📚
+**Obsidian Pipeline**
+JSX → HTML 변환
+WebView 보안 해결
+Custom Frames 연동
+
+</td>
+<td align="center" width="20%">
+
+### ⚡
+**AI Workflow**
+코드 생성·리뷰
+디버그·리팩토링
+Git 자동화
+
+</td>
+<td align="center" width="20%">
+
+### 🗄️
+**Data Management**
+SQLite 이력 저장
+실수 로그 기록
+프로젝트별 관리
+
+</td>
+<td align="center" width="20%">
+
+### 🔐
+**Security**
+사용자 인증
+권한 관리
+안전한 CLI 실행
+
+</td>
+</tr>
+</table>
+
+<br/>
+
+**💡 Key Takeaways**
+
+</div>
+
+| | Topic | Insight |
+|:---:|:---:|:---|
+| 🤖 | **AI Partner** | Claude Code는 단순 보조가 아닌 **개발 프로세스 전체를 함께하는 파트너** |
+| 📱 | **Remote Dev** | loc_bot으로 **시간·장소 제약 없이** 코드 작성 — 이동 중에도 개발 가능 |
+| 📚 | **Knowledge** | JSX → Obsidian HTML 파이프라인으로 **인터랙티브 학습 콘텐츠** 자동 생산 |
+| 🛡️ | **Problem Solving** | WebView 보안 제한을 **fetch + srcdoc 패턴**으로 해결 — 깊은 문제 해결 능력 |
+
+<div align="center">
+
+<br/>
+
+![Code Gen](https://img.shields.io/badge/Code_Generation-자동_코드_작성-D97706?style=for-the-badge)
+![Review](https://img.shields.io/badge/Code_Review-실시간_리뷰-B45309?style=for-the-badge)
+![Debug](https://img.shields.io/badge/Debugging-버그_추적_&_수정-92400E?style=for-the-badge)
+
+![Refactor](https://img.shields.io/badge/Refactoring-코드_개선-D97706?style=for-the-badge)
+![Docs](https://img.shields.io/badge/Documentation-문서_자동화-B45309?style=for-the-badge)
+![Remote](https://img.shields.io/badge/Remote_Dev-Telegram_원격_개발-92400E?style=for-the-badge)
 
 <br/>
 
