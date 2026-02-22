@@ -1467,12 +1467,12 @@ SQLite 이력 저장
 
 <div align="center">
 
-<img width="49%" src="https://github-readme-stats.vercel.app/api?username=lee6147&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=a855f7&icon_color=6366f1&text_color=c9d1d9" />
+<img width="49%" src="https://github-readme-stats-sigma-five.vercel.app/api?username=lee6147&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=a855f7&icon_color=6366f1&text_color=c9d1d9" />
 <img width="49%" src="https://streak-stats.demolab.com/?user=lee6147&theme=tokyonight&hide_border=true&background=0D1117&ring=a855f7&fire=06b6d4&currStreakLabel=06b6d4" />
 
 <br/>
 
-<img width="40%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=lee6147&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=a855f7&text_color=c9d1d9" />
+<img width="40%" src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=lee6147&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=a855f7&text_color=c9d1d9" />
 
 </div>
 
