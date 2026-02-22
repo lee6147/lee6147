@@ -1,515 +1,395 @@
 <div align="center">
 
-<!-- 🎨 메인 애니메이션 헤더 -->
-<svg width="100%" height="220" viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
-    </linearGradient>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-  </defs>
-  
-  <!-- 배경 -->
-  <rect width="400" height="220" fill="url(#grad1)" opacity="0.08" rx="10"/>
-  
-  <!-- 움직이는 원들 -->
-  <circle cx="60" cy="50" r="18" fill="#667eea" opacity="0.7" filter="url(#glow)">
-    <animate attributeName="cy" values="50;110;50" dur="3s" repeatCount="indefinite"/>
-    <animate attributeName="r" values="18;25;18" dur="3s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="200" cy="110" r="18" fill="#764ba2" opacity="0.7" filter="url(#glow)">
-    <animate attributeName="cy" values="110;50;110" dur="3s" repeatCount="indefinite"/>
-    <animate attributeName="r" values="18;25;18" dur="3s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="340" cy="50" r="18" fill="#f093fb" opacity="0.7" filter="url(#glow)">
-    <animate attributeName="cy" values="50;110;50" dur="3s" repeatCount="indefinite"/>
-    <animate attributeName="r" values="18;25;18" dur="3s" repeatCount="indefinite"/>
-  </circle>
-  
-  <!-- 중앙 회전 요소 -->
-  <g>
-    <circle cx="200" cy="110" r="38" fill="none" stroke="#764ba2" stroke-width="2.5" opacity="0.8">
-      <animateTransform attributeName="transform" type="rotate" 
-        values="0 200 110; 360 200 110" dur="5s" repeatCount="indefinite"/>
-    </circle>
-    <circle cx="200" cy="110" r="55" fill="none" stroke="#667eea" stroke-width="1.5" opacity="0.4">
-      <animateTransform attributeName="transform" type="rotate" 
-        values="360 200 110; 0 200 110" dur="7s" repeatCount="indefinite"/>
-    </circle>
-  </g>
-  
-  <!-- 반짝이 효과 (별) -->
-  <circle cx="120" cy="160" r="4" fill="#ffd700" filter="url(#glow)">
-    <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="280" cy="140" r="4" fill="#ffd700" filter="url(#glow)">
-    <animate attributeName="opacity" values="0;1;0" dur="2s" begin="0.5s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="80" cy="180" r="4" fill="#ffd700" filter="url(#glow)">
-    <animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="1s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="320" cy="170" r="4" fill="#ffd700" filter="url(#glow)">
-    <animate attributeName="opacity" values="0;1;0" dur="2.2s" begin="0.3s" repeatCount="indefinite"/>
-  </circle>
-  
-  <!-- 텍스트 -->
-  <text x="200" y="210" font-size="16" font-weight="bold" fill="#667eea" text-anchor="middle" opacity="0.9">
-    ✨ 혁신적인 전자공학자 포트폴리오 ✨
-  </text>
-</svg>
+<!-- Animated Header -->
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:6366f1,25:8b5cf6,50:a855f7,75:06b6d4,100:22d3ee&height=230&section=header&text=Robotics%20%7C%20AI%20%7C%20Automation&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=35&desc=Building%20Intelligent%20Systems&descSize=18&descAlignY=55"/>
 
-# 👋 안녕하세요, 전자공학자입니다!
+<!-- Typing Animation -->
+<a href="https://git.io/typing-svg">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=26&duration=3000&pause=1000&color=A855F7&center=true&vCenter=true&multiline=true&repeat=true&width=800&height=100&lines=%F0%9F%A4%96+Robotics+%2B+Autonomous+Driving+Engineer;%F0%9F%A7%A0+AI+%2F+Computer+Vision+Developer;%F0%9F%9A%80+From+Idea+to+Real-World+System" alt="Typing SVG" />
+</a>
 
-![Status](https://img.shields.io/badge/Status-Active-success?style=flat-square)
-![Last Update](https://img.shields.io/badge/Last%20Update-Jan%202026-blue?style=flat-square)
-![Version](https://img.shields.io/badge/Version-3.0-brightgreen?style=flat-square)
-![Focus](https://img.shields.io/badge/Focus-Embedded%20Systems-ff69b4?style=flat-square)
+<br/>
 
-**혁신적인 전자 제품을 만드는 열정적인 4학년입니다** 🚀
+<!-- Animated Wave -->
+<img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="700"/>
+
+<br/><br/>
+
+![Status](https://img.shields.io/badge/Status-Undergraduate_Researcher-6366f1?style=for-the-badge)
+![Focus](https://img.shields.io/badge/Focus-Robotics_&_AI-a855f7?style=for-the-badge)
+![ROS2](https://img.shields.io/badge/ROS2-Humble-22d3ee?style=for-the-badge&logo=ros&logoColor=white)
 
 </div>
 
 ---
 
-<!-- 🎨 구분선 애니메이션 1 -->
 <div align="center">
-<svg width="100%" height="60" viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0" />
-      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#667eea;stop-opacity:0" />
-    </linearGradient>
-  </defs>
-  <line x1="0" y1="20" x2="400" y2="20" stroke="url(#lineGrad)" stroke-width="2" opacity="0.6">
-    <animate attributeName="stroke-width" values="2;4;2" dur="2s" repeatCount="indefinite"/>
-  </line>
-  <circle cx="200" cy="20" r="8" fill="none" stroke="#764ba2" stroke-width="1.5" opacity="0.7">
-    <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
-  </circle>
-</svg>
+
+## About Me
+
 </div>
 
-## 🎯 프로필
+<img align="right" width="300" src="https://user-images.githubusercontent.com/74038190/229223263-cf2e4b07-2615-4f87-9c38-e37600f8381a.gif"/>
 
-<table align="center">
+```python
+class RoboticsEngineer:
+    def __init__(self):
+        self.role = "Undergraduate Researcher"
+        self.major = "Electronic Engineering"
+
+        self.skills = {
+            "robotics": ["ROS2", "Robot Arm", "MAPF", "FMS"],
+            "autonomous": ["PID", "DQN", "Vision Nav", "SLAM"],
+            "ai_vision": ["OpenCV", "OCR", "ArUco", "Depth"],
+            "backend": ["Django", "Telegram Bot", "SQLite"],
+            "languages": ["C++", "Python"],
+        }
+
+        self.current = "Smart Store Robot Automation"
+        self.passion = "Real-world Robotic Systems"
+
+    def motto(self):
+        return "코드로 로봇을 움직인다"
+
+me = RoboticsEngineer()
+```
+
+<br clear="right"/>
+
+---
+
+<!-- Divider -->
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="700"/>
+</div>
+
+## Tech Stack
+
+<div align="center">
+
+### Robotics & Autonomous Driving
+![ROS2](https://img.shields.io/badge/ROS2-22314E?style=for-the-badge&logo=ros&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+![Gazebo](https://img.shields.io/badge/Gazebo-F58113?style=for-the-badge&logo=gazebo&logoColor=white)
+![Arduino](https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white)
+
+### Languages
+![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+
+### AI / Machine Learning
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+![DQN](https://img.shields.io/badge/DQN-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+![NumPy](https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white)
+
+### Backend & Tools
+![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+
+</div>
+
+---
+
+<!-- Divider -->
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="700"/>
+</div>
+
+## Projects
+
+<!-- Project 1: RoboCallee -->
+<div align="center">
+
+### RoboCallee - Smart Store Robot Automation
+
+<img src="https://img.shields.io/badge/Team_Project-ROS2_|_C++_|_Python_|_Django-6366f1?style=for-the-badge"/>
+
+</div>
+
+> **스마트 신발 매장에서 로봇팔 + 자율주행 로봇으로 재고 운반과 고객 응대를 자동화하는 시스템**
+
+<table>
 <tr>
-<td width="50%"><b>🏫 학교</b><br>전자공학부 4학년</td>
-<td width="50%"><b>🎓 전공</b><br>전자공학</td>
+<td width="50%">
+
+**Robot Arm Control**
+- MyCobot Pick & Place 제어
+- OCR 기반 신발 박스 인식
+- Shelf ↔ Buffer ↔ Robot 자동 이송
+- 카메라-로봇팔 캘리브레이션
+
+</td>
+<td width="50%">
+
+**Autonomous Driving**
+- ArUco 마커 기반 위치 추정 (LPF)
+- MAPF 다중 로봇 경로 탐색
+- PID 제어 기반 네비게이션
+- DQN 강화학습 주행 (Gazebo → Sim2Real)
+
+</td>
 </tr>
 <tr>
-<td><b>🌍 관심분야</b><br>마이크로컨트롤러, FPGA, IoT</td>
-<td><b>💡 목표</b><br>혁신적인 제품 개발</td>
+<td width="50%">
+
+**Fleet Management System**
+- 배달/수거 시나리오 자동화
+- 다중 로봇 트래픽 관리
+- 태스크 할당 및 상태 관리
+- ROS2 기반 실시간 통신
+
+</td>
+<td width="50%">
+
+**Control Service**
+- Django 기반 고객 GUI
+- 관리자 Web GUI + QT GUI
+- Vision 기반 장애물 회피
+- 실시간 로봇 상태 모니터링
+
+</td>
 </tr>
 </table>
 
----
-
-<!-- 🎨 구분선 애니메이션 2 -->
 <div align="center">
-<svg width="100%" height="60" viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="lineGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:0" />
-      <stop offset="50%" style="stop-color:#667eea;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:0" />
-    </linearGradient>
-  </defs>
-  <line x1="0" y1="20" x2="400" y2="20" stroke="url(#lineGrad2)" stroke-width="2" opacity="0.6">
-    <animate attributeName="stroke-width" values="2;4;2" dur="2.5s" repeatCount="indefinite"/>
-  </line>
-  <circle cx="200" cy="20" r="8" fill="none" stroke="#667eea" stroke-width="1.5" opacity="0.7">
-    <animate attributeName="r" values="8;12;8" dur="2.5s" repeatCount="indefinite"/>
-  </circle>
-</svg>
+
+**Demo Videos**
+
+[![FMS Delivery](https://img.shields.io/badge/FMS_배달_시나리오-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=GBW1qsYFHe4)
+[![FMS Collection GUI](https://img.shields.io/badge/FMS_수거_GUI-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=zXWMFyJrSFo)
+[![FMS Collection](https://img.shields.io/badge/FMS_수거_시나리오-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=mT-UyDo27II)
+[![PID vs DQN](https://img.shields.io/badge/PID_vs_DQN_비교-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/zxgvcNaVX5w)
+
 </div>
 
-## 🛠️ 기술 스택
+---
+
+<!-- Project 2: loc_bot -->
+<div align="center">
+
+### loc_bot - Telegram Remote Claude Code Controller
+
+<img src="https://img.shields.io/badge/Personal_Project-Python_|_Telegram_|_Claude_Code-a855f7?style=for-the-badge"/>
+
+</div>
+
+> **Telegram을 통해 로컬 PC의 Claude Code CLI를 어디서든 원격 제어하는 봇**
+
+<table>
+<tr>
+<td width="50%">
+
+- Telegram 메시지로 Claude Code CLI 원격 제어
+- 실시간 스트리밍 출력 (Status Card)
+- 다중 프로젝트 관리 (`/register`, `/use`, `/scan`)
+- 이미지 첨부 → Claude에게 전달
+
+</td>
+<td width="50%">
+
+- 작업 히스토리 저장 (SQLite)
+- 실수 로그 기록 및 검색
+- 사용자 인증 시스템
+- Windows 자동 시작 스크립트
+
+</td>
+</tr>
+</table>
 
 <div align="center">
 
-### 💻 프로그래밍 언어
-![C](https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white)
-![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)
+[![Repo](https://img.shields.io/badge/View_Repository-Undergraduate--research--student-6366f1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/lee6147/Undergraduate-research-student/tree/main/Claude/loc_bot)
+
+</div>
+
+---
+
+<!-- Project 3: Quantum BQB -->
+<div align="center">
+
+### Quantum BQB - Interactive Quantum Mechanics Guide
+
+<img src="https://img.shields.io/badge/Research-React_|_HTML_|_Interactive_Visualization-06b6d4?style=for-the-badge"/>
+
+</div>
+
+> **양자역학 BQB를 인터랙티브 웹 가이드로 시각화한 교육 프로젝트**
+
+- 난이도별 학습 자료 구성 (Basic → Intermediate → Advanced)
+- React 기반 인터랙티브 HTML 런처
+- 파티클 시스템, 타이핑 효과, 스크롤 애니메이션
+
+<div align="center">
+
+[![Repo](https://img.shields.io/badge/View_Repository-Quantum__BQB-a855f7?style=for-the-badge&logo=github&logoColor=white)](https://github.com/lee6147/Undergraduate-research-student/tree/main/Quantum_BQB)
+
+</div>
+
+---
+
+<!-- Project 4: R&D Center -->
+<div align="center">
+
+### R&D Center Establishment Strategy
+
+<img src="https://img.shields.io/badge/Research-Vanilla_JS_|_Interactive_Proposal-22d3ee?style=for-the-badge"/>
+
+</div>
+
+> **ERC/CRC 선도연구센터지원사업 제안서를 인터랙티브 웹페이지로 시각화**
+
+- 3단계 5년 로드맵 (기반 구축 → 본격 연구 → 사업화)
+- 스크롤 기반 인터랙션, 카운터 애니메이션, 패럴랙스 효과
+- 핵심 메시지: *"이 컨소시엄이 아니면 이 문제를 못 푼다"*
+
+<div align="center">
+
+[![Repo](https://img.shields.io/badge/View_Repository-Electric__Bus-6366f1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/lee6147/Undergraduate-research-student/tree/main/Eletric%20bus)
+
+</div>
+
+---
+
+<!-- Divider -->
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="700"/>
+</div>
+
+## Skill Proficiency
+
+<div align="center">
+
+| Domain | Skill | Level |
+|:---:|:---|:---:|
+| **Robotics** | ROS2 (Humble) | ![](https://progress-bar.dev/90/?color=6366f1&width=200) |
+| | Robot Arm Control (MyCobot) | ![](https://progress-bar.dev/85/?color=6366f1&width=200) |
+| | MAPF (Multi-Agent Path Finding) | ![](https://progress-bar.dev/80/?color=6366f1&width=200) |
+| | FMS (Fleet Management) | ![](https://progress-bar.dev/85/?color=6366f1&width=200) |
+| **Autonomous** | PID Control | ![](https://progress-bar.dev/90/?color=a855f7&width=200) |
+| | DQN Reinforcement Learning | ![](https://progress-bar.dev/75/?color=a855f7&width=200) |
+| | Vision-based Navigation | ![](https://progress-bar.dev/80/?color=a855f7&width=200) |
+| | ArUco Marker Localization | ![](https://progress-bar.dev/85/?color=a855f7&width=200) |
+| **AI / Vision** | OpenCV | ![](https://progress-bar.dev/85/?color=06b6d4&width=200) |
+| | OCR / Object Detection | ![](https://progress-bar.dev/80/?color=06b6d4&width=200) |
+| | Camera Calibration | ![](https://progress-bar.dev/80/?color=06b6d4&width=200) |
+| **Languages** | C++ | ![](https://progress-bar.dev/85/?color=22d3ee&width=200) |
+| | Python | ![](https://progress-bar.dev/90/?color=22d3ee&width=200) |
+
+</div>
+
+---
+
+<!-- Divider -->
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="700"/>
+</div>
+
+## System Architecture
+
+<div align="center">
+
+```
+                    ┌─────────────────────────────────────┐
+                    │          Control Service             │
+                    │    (Django Web / QT GUI / Admin)     │
+                    └──────────────┬──────────────────────┘
+                                   │
+                    ┌──────────────▼──────────────────────┐
+                    │    Fleet Management System (FMS)     │
+                    │  Task Assignment │ Traffic Control   │
+                    └───────┬─────────────────┬───────────┘
+                            │                 │
+              ┌─────────────▼───┐   ┌────────▼──────────┐
+              │   Robot Arm     │   │  Mobile Robot      │
+              │   Controller    │   │  Controller        │
+              │                 │   │                    │
+              │ • MyCobot       │   │ • ArUco Marker     │
+              │ • Pick & Place  │   │ • PID Navigation   │
+              │ • OCR Detection │   │ • DQN Learning     │
+              │ • Calibration   │   │ • Vision Tracking  │
+              └────────┬────────┘   └────────┬───────────┘
+                       │                     │
+                       └──────────┬──────────┘
+                                  │
+                    ┌─────────────▼───────────────────────┐
+                    │         ROS2 Communication           │
+                    │    Topics │ Services │ Actions       │
+                    └─────────────────────────────────────┘
+```
+
+</div>
+
+---
+
+<!-- Divider -->
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="700"/>
+</div>
+
+## GitHub Stats
+
+<div align="center">
+
+<img width="49%" src="https://github-readme-stats.vercel.app/api?username=lee6147&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=a855f7&icon_color=6366f1&text_color=c9d1d9" />
+<img width="49%" src="https://github-readme-streak-stats.herokuapp.com/?user=lee6147&theme=tokyonight&hide_border=true&background=0D1117&ring=a855f7&fire=06b6d4&currStreakLabel=06b6d4" />
 
 <br/>
 
-### 🔌 하드웨어 & 개발도구
-![Arduino](https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white)
-![Verilog](https://img.shields.io/badge/Verilog-4B8BBE?style=for-the-badge&logo=v&logoColor=white)
-![FPGA](https://img.shields.io/badge/FPGA-FF6B6B?style=for-the-badge)
-![PCB Design](https://img.shields.io/badge/PCB%20Design-0071B5?style=for-the-badge&logo=autodesk&logoColor=white)
+<img width="40%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=lee6147&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117&title_color=a855f7&text_color=c9d1d9" />
+
+</div>
+
+---
+
+<!-- Divider -->
+<div align="center">
+<img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" width="700"/>
+</div>
+
+## Activity Graph
+
+<div align="center">
+
+[![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=lee6147&theme=tokyo-night&hide_border=true&bg_color=0D1117&color=a855f7&line=06b6d4&point=22d3ee)](https://github.com/lee6147)
+
+</div>
+
+---
+
+<div align="center">
+
+### Repositories
+
+[![Undergraduate Research](https://img.shields.io/badge/Undergraduate--research--student-Robotics_|_AI_|_Quantum-6366f1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/lee6147/Undergraduate-research-student)
+
+</div>
+
+---
+
+<div align="center">
 
 <br/>
 
-### 🌐 주요 기술 & 개념
-![Embedded Systems](https://img.shields.io/badge/Embedded%20Systems-FF6B6B?style=for-the-badge)
-![IoT](https://img.shields.io/badge/IoT-00BFFF?style=for-the-badge)
-![Microcontroller](https://img.shields.io/badge/Microcontroller-4A90E2?style=for-the-badge)
-![Circuit Design](https://img.shields.io/badge/Circuit%20Design-FFB6C1?style=for-the-badge)
-
-</div>
-
----
-
-<!-- 🎨 구분선 애니메이션 3 -->
-<div align="center">
-<svg width="100%" height="60" viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="lineGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#764ba2;stop-opacity:0" />
-      <stop offset="50%" style="stop-color:#f093fb;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0" />
-    </linearGradient>
-  </defs>
-  <line x1="0" y1="20" x2="400" y2="20" stroke="url(#lineGrad3)" stroke-width="2" opacity="0.6">
-    <animate attributeName="stroke-width" values="2;4;2" dur="2.2s" repeatCount="indefinite"/>
-  </line>
-  <circle cx="200" cy="20" r="8" fill="none" stroke="#f093fb" stroke-width="1.5" opacity="0.7">
-    <animate attributeName="r" values="8;12;8" dur="2.2s" repeatCount="indefinite"/>
-  </circle>
-</svg>
-</div>
-
-## 📊 기술 숙련도
-
-<div align="center">
-
-| 기술 | 숙련도 | 경험 | 진행도 |
-|:---:|:----:|:---:|:------:|
-| **C/C++** | ⭐⭐⭐⭐⭐ | 2년 | ![](https://progress-bar.dev/100/?color=667eea&title=Expert) |
-| **Arduino** | ⭐⭐⭐⭐⭐ | 3년 | ![](https://progress-bar.dev/100/?color=764ba2&title=Expert) |
-| **FPGA/Verilog** | ⭐⭐⭐⭐ | 1년 | ![](https://progress-bar.dev/85/?color=f093fb&title=Advanced) |
-| **PCB Design** | ⭐⭐⭐⭐ | 1.5년 | ![](https://progress-bar.dev/80/?color=667eea&title=Advanced) |
-| **Python** | ⭐⭐⭐⭐⭐ | 2년 | ![](https://progress-bar.dev/95/?color=764ba2&title=Expert) |
-| **IoT Systems** | ⭐⭐⭐⭐ | 1.5년 | ![](https://progress-bar.dev/85/?color=f093fb&title=Advanced) |
-
-</div>
-
----
-
-<!-- 🎨 구분선 애니메이션 4 -->
-<div align="center">
-<svg width="100%" height="60" viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="lineGrad4" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:0" />
-      <stop offset="50%" style="stop-color:#667eea;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:0" />
-    </linearGradient>
-  </defs>
-  <line x1="0" y1="20" x2="400" y2="20" stroke="url(#lineGrad4)" stroke-width="2" opacity="0.6">
-    <animate attributeName="stroke-width" values="2;4;2" dur="2s" repeatCount="indefinite"/>
-  </line>
-  <circle cx="200" cy="20" r="8" fill="none" stroke="#667eea" stroke-width="1.5" opacity="0.7">
-    <animate attributeName="r" values="8;12;8" dur="2s" repeatCount="indefinite"/>
-  </circle>
-</svg>
-</div>
-
-## 🎓 핵심 역량
-
-<div align="center">
-
-| 🔧 **기술 역량** | 💼 **소프트 스킬** |
-|---|---|
-| ✅ 마이크로컨트롤러 프로그래밍 | ✅ 문제 해결 능력 |
-| ✅ FPGA 설계 및 구현 | ✅ 팀 협업 경험 |
-| ✅ 회로 설계 및 PCB 레이아웃 | ✅ 프로젝트 관리 |
-| ✅ IoT 시스템 개발 | ✅ 빠른 학습 능력 |
-| ✅ 임베디드 시스템 개발 | ✅ 창의적 사고 |
-| ✅ 펌웨어 최적화 | ✅ 커뮤니케이션 스킬 |
-
-</div>
-
----
-
-## 🎨 주요 프로젝트
-
-### 📌 프로젝트 1️⃣ - 스마트 홈 IoT 시스템
-<div align="center">
-
-> 🏠 Arduino 기반 센서 네트워크를 활용한 IoT 홈 오토메이션
-
-**핵심 기술:**
-- 마이크로컨트롤러 프로그래밍 (ATmega328P)
-- 무선 통신 (Wi-Fi, BLE)
-- 센서 인터페이싱 (온습도, 조도, 모션)
-- 클라우드 연동
-
-**성과:** ✨ 에너지 절감 40% 달성
-
-</div>
-
----
-
-### 📌 프로젝트 2️⃣ - FPGA 기반 신호처리 시스템
-<div align="center">
-
-> ⚡ Verilog를 이용한 실시간 신호처리 회로 설계
-
-**핵심 기술:**
-- FPGA 보드 (Xilinx Basys 3)
-- Verilog HDL 설계
-- 고속 데이터 처리
-- 신호 필터링 및 변환
-
-**성과:** 🎯 처리 속도 10배 향상
-
-</div>
-
----
-
-### 📌 프로젝트 3️⃣ - PCB 설계 및 제작
-<div align="center">
-
-> 🔧 커스텀 센서 보드 완전 설계부터 제작까지
-
-**핵심 기술:**
-- Altium Designer를 이용한 회로도 설계
-- PCB 레이아웃 최적화
-- 부품 배치 및 신호 무결성
-- 프로토타입 제작 및 테스트
-
-**성과:** 📦 5개 보드 성공적으로 제작
-
-</div>
-
----
-
-<!-- 🎨 구분선 애니메이션 5 -->
-<div align="center">
-<svg width="100%" height="60" viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="lineGrad5" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#764ba2;stop-opacity:0" />
-      <stop offset="50%" style="stop-color:#f093fb;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0" />
-    </linearGradient>
-  </defs>
-  <line x1="0" y1="20" x2="400" y2="20" stroke="url(#lineGrad5)" stroke-width="2" opacity="0.6">
-    <animate attributeName="stroke-width" values="2;4;2" dur="2.5s" repeatCount="indefinite"/>
-  </line>
-  <circle cx="200" cy="20" r="8" fill="none" stroke="#764ba2" stroke-width="1.5" opacity="0.7">
-    <animate attributeName="r" values="8;12;8" dur="2.5s" repeatCount="indefinite"/>
-  </circle>
-</svg>
-</div>
-
-## 📚 학습 경로
-
-<div align="center">
-
 ```
-┌──────────────────────────────────────────────────────┐
-│  전자공학 기초                                        │
-│  ├─ 회로이론 & 신호처리 ⭐⭐⭐⭐⭐                   │
-│  ├─ 디지털 로직 ⭐⭐⭐⭐⭐                         │
-│  └─ 마이크로프로세서 ⭐⭐⭐⭐⭐                     │
-│                                                      │
-│  임베디드 시스템 심화                                 │
-│  ├─ 마이크로컨트롤러 프로그래밍 ⭐⭐⭐⭐⭐         │
-│  ├─ RTOS & 펌웨어 개발 ⭐⭐⭐⭐                   │
-│  └─ IoT 통신 프로토콜 ⭐⭐⭐⭐⭐                   │
-│                                                      │
-│  FPGA & HDL 설계                                    │
-│  ├─ Verilog HDL ⭐⭐⭐⭐                         │
-│  ├─ 디지털 회로 설계 ⭐⭐⭐⭐                      │
-│  └─ FPGA 최적화 ⭐⭐⭐⭐                          │
-│                                                      │
-│  PCB & 회로설계                                     │
-│  ├─ 회로도 설계 ⭐⭐⭐⭐⭐                        │
-│  ├─ PCB 레이아웃 ⭐⭐⭐⭐                         │
-│  └─ 신호무결성 ⭐⭐⭐                            │
-└──────────────────────────────────────────────────────┘
+"코드가 하드웨어를 만나면, 로봇이 움직인다."
 ```
 
-</div>
+<br/>
 
----
+<img src="https://img.shields.io/badge/Robotics-Passion-6366f1?style=flat-square"/>
+<img src="https://img.shields.io/badge/AI-Explorer-a855f7?style=flat-square"/>
+<img src="https://img.shields.io/badge/ROS2-Builder-06b6d4?style=flat-square"/>
+<img src="https://img.shields.io/badge/Open_Source-Contributor-22d3ee?style=flat-square"/>
 
-<!-- 🎨 구분선 애니메이션 6 -->
-<div align="center">
-<svg width="100%" height="60" viewBox="0 0 400 60" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="lineGrad6" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#667eea;stop-opacity:0" />
-      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#667eea;stop-opacity:0" />
-    </linearGradient>
-  </defs>
-  <line x1="0" y1="20" x2="400" y2="20" stroke="url(#lineGrad6)" stroke-width="2" opacity="0.6">
-    <animate attributeName="stroke-width" values="2;4;2" dur="2.2s" repeatCount="indefinite"/>
-  </line>
-  <circle cx="200" cy="20" r="8" fill="none" stroke="#f093fb" stroke-width="1.5" opacity="0.7">
-    <animate attributeName="r" values="8;12;8" dur="2.2s" repeatCount="indefinite"/>
-  </circle>
-</svg>
-</div>
+<br/><br/>
 
-## 🚀 빠른 시작
-
-### 📌 이 프로젝트 확인
-
-README.md 파일을 GitHub에서 보시면 :
-- 📊 동적 SVG 애니메이션 확인 가능
-- 🎨 기술 숙련도 시각화
-- 📈 프로젝트 성과 확인
-
-### 🌐 GitHub에서 보기
-
-이 README는 마크다운 형식의 포트폴리오입니다.
-GitHub에서 전체 내용을 한눈에 확인할 수 있습니다!
-
----
-
-## ⚙️ README 커스터마이징 가이드
-
-<details>
-<summary><b>1️⃣ 개인정보 업데이트</b></summary>
-
-다음 부분을 찾아 수정하세요:
-
-- 이메일: `your@email.com`
-- GitHub: `[GitHub Profile](#)`
-- LinkedIn: `[LinkedIn](#)`
-
-본인의 실제 정보로 변경하세요.
-
-</details>
-
-<details>
-<summary><b>2️⃣ 기술 스택 수정</b></summary>
-
-기술 스택 섹션에서 다음을 수정하세요:
-
-- 프로그래밍 언어 추가/제거
-- 하드웨어 & 개발도구 업데이트
-- 주요 기술 & 개념 수정
-
-</details>
-
-<details>
-<summary><b>3️⃣ 프로젝트 정보 업데이트</b></summary>
-
-프로젝트 섹션에서 다음을 수정하세요:
-
-- 프로젝트 제목 변경
-- 핵심 기술 업데이트
-- 성과 수치 수정
-
-</details>
-
----
-
-## 📁 파일 구조
-
-```
-📦 lee6147/
-├─ 📄 README.md          # 마크다운 포트폴리오 (현재 파일) ⭐
-├─ 📂 projects/          # (향후 추가)
-│  ├─ iot-system.md
-│  ├─ fpga-design.md
-│  └─ pcb-board.md
-└─ 📂 assets/            # (향후 추가)
-   ├─ images/
-   └─ certificates/
-```
-
----
-
----
-
-<!-- 🎨 구분선 애니메이션 최종 -->
-<div align="center">
-<svg width="100%" height="80" viewBox="0 0 400 80" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="finalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  <rect x="50" y="20" width="300" height="40" fill="none" stroke="url(#finalGrad)" stroke-width="2" rx="10" opacity="0.8">
-    <animate attributeName="stroke-width" values="2;3;2" dur="1.5s" repeatCount="indefinite"/>
-  </rect>
-  <text x="200" y="47" font-size="14" font-weight="bold" fill="url(#finalGrad)" text-anchor="middle">
-    🌟 함께 성장하는 엔지니어입니다 🌟
-  </text>
-</svg>
-</div>
-
-## 🔗 연결
-
-<div align="center">
-
-| 📧 **이메일** | 💼 **GitHub** | 🔗 **LinkedIn** |
-|---|---|---|
-| [your@email.com](mailto:your@email.com) | [@username](https://github.com) | [@profile](https://linkedin.com) |
-
-<br>
-
-**마지막 업데이트:** January 13, 2026 ✨
+**Last Updated:** February 2026
 
 </div>
 
----
-
-## 📝 라이선스
-
-<div align="center">
-
-![License](https://img.shields.io/badge/License-Personal%20Portfolio-blueviolet?style=flat-square)
-
-이 프로젝트는 개인 포트폴리오 프로젝트입니다.
-<div align="center">
-
-```
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-┃                                           ┃
-┃  ✅ 2026.01.12: 시각 효과 추가             ┃
-┃     • 진행도 바 시각화                   ┃
-┃     • 프로젝트 박스 디자인               ┃
-┃     • 배치 별 구분 개선                  ┃
-┃                                           ┃
-┃  ✅ 2026.01.12: README.md 완전 개선       ┃
-┃     • 마크다운 형식 오류 해결            ┃
-┃     • 기술 숙련도 테이블 추가            ┃
-┃                                           ┃
-┃  ✅ 2026.01.12: intro.html 완성           ┃
-┃     • 애니메이션 효과 적용              ┃
-┃     • Glassmorphism 디자인                ┃
-┃                                           ┃
-┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-```
-
-</div>
----
-
-## 🎯 최근 업데이트
-
-- ✅ **2026.01.12**: README.md 마크다운 형식 완전 수정 및 개선
-- ✅ **2026.01.12**: intro.html 애니메이션 효과 추가
-- ✅ **2026.01.12**: 기술 숙련도 테이블 추가
-
----
-
-<div align="center">
-
-### ✨ 함께 멋진 기술을 만들어가요! ✨
-
-**마지막 수정**: 2026년 1월 12일 ⏰
-
-**👇 intro.html을 열어서 멋진 포트폴리오를 확인해보세요! 👇**
-
-</div>
+<!-- Animated Footer -->
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:22d3ee,25:06b6d4,50:a855f7,75:8b5cf6,100:6366f1&height=120&section=footer&animation=twinkling"/>
