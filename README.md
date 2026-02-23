@@ -350,31 +350,6 @@ sequenceDiagram
     Note over AMR: ⚡ Return to<br/>charging station
 ```
 
-<br/>
-
-**AMR State Transitions**
-
-```mermaid
-stateDiagram-v2
-    [*] --> IDLE
-
-    IDLE --> BUSY : 📋 Order assigned
-
-    state BUSY {
-        [*] --> CheckPath
-        CheckPath --> MoveToStorage : 🗺️ Path received
-        MoveToStorage --> MoveToDestination : 📦 Product loaded
-        MoveToDestination --> [*] : 🎯 Customer reached
-    }
-
-    BUSY --> RETURN : ✅ Delivery done
-    RETURN --> IDLE : ⚡ Charging station
-
-    note right of IDLE : Standby\nCharging
-    note right of BUSY : Processing order\nWaypoint following
-    note right of RETURN : Returning to\ncharging station
-```
-
 
 </details>
 
