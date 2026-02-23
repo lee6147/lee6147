@@ -488,6 +488,156 @@ State Machine
 
 > **BQB(Buried Quantum Barrier) 기반 반도체 큐비트 대규모 어레이 기술을 인터랙티브 웹 플랫폼으로 구축한 연구 프로젝트**
 
+---
+
+<details open>
+<summary><h4>⚛️ Quantum World Explorer — 7가지 핵심 개념 인터랙티브 시각화</h4></summary>
+
+<div align="center">
+
+<a href="https://git.io/typing-svg">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=20&duration=2500&pause=800&color=06B6D4&center=true&vCenter=true&multiline=true&repeat=true&width=700&height=80&lines=%E2%9A%9B%EF%B8%8F+Quantum+World+Explorer;%EC%96%91%EC%9E%90+%EC%84%B8%EA%B3%84%EB%A5%BC+%EC%9D%B8%ED%84%B0%EB%9E%99%ED%8B%B0%EB%B8%8C+%EC%8B%9C%EA%B0%81%ED%99%94%EB%A1%9C+%ED%83%90%ED%97%98%ED%95%98%EC%84%B8%EC%9A%94" alt="Typing SVG" />
+</a>
+
+<br/>
+
+<img src="https://user-images.githubusercontent.com/74038190/213910845-af37a709-8995-40d6-be59-724526e3c3d7.gif" width="300"/>
+
+<br/><br/>
+
+> *"양자역학을 이해했다고 생각한다면, 양자역학을 이해하지 못한 것이다."* — Richard Feynman
+
+</div>
+
+<br/>
+
+<div align="center">
+
+| 아이콘 | 개념 | 영문 | 설명 | 인터랙션 |
+|:---:|:---|:---|:---|:---:|
+| 🔧 | **왜 양자를 공부하는가?** | From Theory to Engineering | 양자역학 → BQB → 양자컴퓨터 여정 | 개념×기술 매핑 |
+| ◉ | **중첩** | Superposition | \|ψ⟩ = α\|↑⟩ + β\|↓⟩ | 양자 코인 클릭 |
+| ⫘ | **얽힘** | Entanglement | 두 입자의 즉각적 상관관계 | 입자쌍 측정 |
+| ⇥ | **터널링** | Quantum Tunneling | T ∝ e^(−2κL) 확률적 투과 | 입자 발사 시뮬 |
+| ◎ | **측정** | Measurement Problem | 파동함수 붕괴의 수수께끼 | 확률 구름 검출 |
+| ∿ | **파동-입자 이중성** | Wave-Particle Duality | λ = h/p 이중 슬릿 실험 | 관측기 ON/OFF |
+| Δ | **불확정성 원리** | Uncertainty Principle | Δx·Δp ≥ ℏ/2 | 슬라이더 조절 |
+
+</div>
+
+<br/>
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/◉-Superposition-06b6d4?style=flat-square"/>
+<img src="https://img.shields.io/badge/⫘-Entanglement-8b5cf6?style=flat-square"/>
+<img src="https://img.shields.io/badge/⇥-Tunneling-10b981?style=flat-square"/>
+<img src="https://img.shields.io/badge/◎-Measurement-ec4899?style=flat-square"/>
+<img src="https://img.shields.io/badge/∿-Duality-f59e0b?style=flat-square"/>
+<img src="https://img.shields.io/badge/Δ-Uncertainty-f43f5e?style=flat-square"/>
+
+</div>
+
+</details>
+
+---
+
+<details open>
+<summary><h4>🔧 BQB 플랫폼 — From Theory to Engineering</h4></summary>
+
+<div align="center">
+
+<a href="https://git.io/typing-svg">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=18&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&repeat=true&width=600&height=50&lines=BQB+%3D+Barrier-defined+Qubit+in+Buried+template;22nm+FD-SOI+%C2%B7+31P+Donor+%C2%B7+4K+Cryogenic;N_phys+%E2%86%92+N_op+%E2%86%92+N_link+Pipeline" alt="Typing SVG" />
+</a>
+
+<br/>
+
+<img src="https://img.shields.io/badge/⚛️_Theory-Quantum_Physics-06b6d4?style=flat-square"/>
+<img src="https://img.shields.io/badge/→-000000?style=flat-square"/>
+<img src="https://img.shields.io/badge/🔬_Design-BQB_Platform-3fb950?style=flat-square"/>
+<img src="https://img.shields.io/badge/→-000000?style=flat-square"/>
+<img src="https://img.shields.io/badge/💻_Build-Quantum_Computer-58a6ff?style=flat-square"/>
+
+<br/><br/>
+
+```
+ ┌─────────────┐      ┌─────────────┐      ┌─────────────┐
+ │   N_phys    │ ───▶ │    N_op     │ ───▶ │   N_link    │
+ │ 물리적 배열  │      │  운용 가능   │      │  얽힘 연결   │
+ └─────────────┘      └─────────────┘      └─────────────┘
+```
+
+</div>
+
+<br/>
+
+**6개 양자 개념 × BQB 기술 매핑**
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/중첩_→_큐비트-06b6d4?style=flat-square"/>
+<img src="https://img.shields.io/badge/얽힘_→_게이트-8b5cf6?style=flat-square"/>
+<img src="https://img.shields.io/badge/터널링_→_공정-10b981?style=flat-square"/>
+<img src="https://img.shields.io/badge/측정_→_읽기-ec4899?style=flat-square"/>
+<img src="https://img.shields.io/badge/이중성_→_설계-f59e0b?style=flat-square"/>
+<img src="https://img.shields.io/badge/불확정성_→_한계-f43f5e?style=flat-square"/>
+
+</div>
+
+| 양자 개념 | BQB 기술 적용 | KPI 목표 |
+|:---|:---|:---|
+| **중첩** | 큐비트 상태 \|0⟩+\|1⟩ — 28Si 순도 + Triple-Wall 격리 | F1q ≥ 0.999 |
+| **얽힘** | 2-qubit 게이트 — J-coupling 교환 상호작용 | F2q ≥ 0.99, ≥16쌍 |
+| **터널링** | 이온 주입 + BQB-B 매립 장벽 투과 설계 | overlay ≤ 15nm |
+| **측정** | 단일 전자 읽기(SET/RF) 비파괴 검출 | 검출 충실도 ≥ 99% |
+| **이중성** | 물질파 기반 나노구조 게이트 설계 | FDM ≥ 5MHz 간격 |
+| **불확정성** | 디코히어런스 · DD 시퀀스 노이즈 억제 | T2 ≥ 1s (CPMG) |
+
+<br/>
+
+**4대 핵심 기술 스택 + 5개년 로드맵**
+
+<table>
+<tr>
+<td width="50%">
+
+```
+🛡️ Triple-Wall QBQ
+   STI moat + T3 실드웰 + BQB-B
+
+⚡ 77K DD-IC
+   22nm FD-SOI · O(√N) 스케일링
+
+❄️ Split-Stage 패키징
+   77K(제어) ↔ 4K(큐비트) 분리
+
+🔄 폐루프 수렴
+   Generate → Verify → Correct
+```
+
+</td>
+<td width="50%">
+
+```
+1차 '26  단일~소수    TRL 3→3+
+2차 '27  2×2 배열     TRL 3+→4
+3차 '28  4×4 배열     TRL 4
+4차 '29  8×8 배열     TRL 4→5-
+5차 '30  16×16 배열   TRL 5 ✅
+```
+
+```
+수율 거듭제곱: Y = p^N (N=256)
+  p=99.0% → Y= 7.6% ❌
+  p=99.5% → Y=27.7% ⚠️
+  p=99.9% → Y=77.4% ✅
+```
+
+</td>
+</tr>
+</table>
+
 </details>
 
 ---
