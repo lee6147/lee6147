@@ -474,13 +474,13 @@ State Machine
 
 <br/>
 
-<img src="https://raw.githubusercontent.com/cduck/bloch_sphere/master/examples/hh_gate.gif" width="280"/>
+<img src="https://media1.tenor.com/m/94wsoEhGmUcAAAAC/atom-animation.gif" width="280"/>
 &nbsp;&nbsp;&nbsp;
-<img src="https://media1.tenor.com/m/WebwyRlEidYAAAAC/physics-quantum-physics.gif" width="280"/>
+<img src="https://media1.tenor.com/m/2GOkInGS-ccAAAAC/hydrogen-hydrogen-atom.gif" width="280"/>
 
-<sub><b>⚛️ Bloch Sphere — Hadamard Gate Rotation</b></sub>
+<sub><b>⚛️ Atomic Orbital Animation</b></sub>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<sub><b>⚛️ Quantum Particles Visualization</b></sub>
+<sub><b>⚛️ Hydrogen Atom — Electron Orbit</b></sub>
 
 <br/><br/>
 
