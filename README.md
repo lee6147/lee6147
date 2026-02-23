@@ -474,19 +474,6 @@ State Machine
 
 <br/>
 
-<img src="https://media1.tenor.com/m/94wsoEhGmUcAAAAC/atom-animation.gif" width="200"/>
-&nbsp;
-<img src="https://media1.tenor.com/m/wYYhVIW-hy8AAAAC/particle-collision.gif" width="200"/>
-&nbsp;
-<img src="https://media1.tenor.com/m/H-I0vC5AM5kAAAAC/entanglement-quantum-entanglement.gif" width="200"/>
-
-<br/>
-
-<img src="https://media1.tenor.com/m/rz3U5gjsTEkAAAAC/quantum-field-generator.gif" width="200"/>
-&nbsp;
-<img src="https://media1.tenor.com/m/1aejtj2SyOsAAAAC/spectral-vision.gif" width="200"/>
-
-<br/><br/>
 
 ![Platform](https://img.shields.io/badge/Platform-239KB_Single_File_React_App-06b6d4?style=for-the-badge)
 ![Modules](https://img.shields.io/badge/Modules-4_Interactive_Guides-a855f7?style=for-the-badge)
