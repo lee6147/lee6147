@@ -474,6 +474,16 @@ State Machine
 
 <br/>
 
+<img src="https://raw.githubusercontent.com/cduck/bloch_sphere/master/examples/hh_gate.gif" width="280"/>
+&nbsp;&nbsp;&nbsp;
+<img src="https://media1.tenor.com/m/WebwyRlEidYAAAAC/physics-quantum-physics.gif" width="280"/>
+
+<sub><b>⚛️ Bloch Sphere — Hadamard Gate Rotation</b></sub>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<sub><b>⚛️ Quantum Particles Visualization</b></sub>
+
+<br/><br/>
+
 ![Platform](https://img.shields.io/badge/Platform-239KB_Single_File_React_App-06b6d4?style=for-the-badge)
 ![Modules](https://img.shields.io/badge/Modules-4_Interactive_Guides-a855f7?style=for-the-badge)
 ![Visualizations](https://img.shields.io/badge/Visualizations-7_Quantum_Concepts-6366f1?style=for-the-badge)
