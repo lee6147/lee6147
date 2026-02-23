@@ -474,13 +474,17 @@ State Machine
 
 <br/>
 
-<img src="https://media1.tenor.com/m/94wsoEhGmUcAAAAC/atom-animation.gif" width="280"/>
-&nbsp;&nbsp;&nbsp;
-<img src="https://media1.tenor.com/m/2GOkInGS-ccAAAAC/hydrogen-hydrogen-atom.gif" width="280"/>
+<img src="https://media1.tenor.com/m/94wsoEhGmUcAAAAC/atom-animation.gif" width="200"/>
+&nbsp;
+<img src="https://media1.tenor.com/m/wYYhVIW-hy8AAAAC/particle-collision.gif" width="200"/>
+&nbsp;
+<img src="https://media1.tenor.com/m/H-I0vC5AM5kAAAAC/entanglement-quantum-entanglement.gif" width="200"/>
 
-<sub><b>⚛️ Atomic Orbital Animation</b></sub>
-&nbsp;&nbsp;&nbsp;&nbsp;
-<sub><b>⚛️ Hydrogen Atom — Electron Orbit</b></sub>
+<br/>
+
+<img src="https://media1.tenor.com/m/rz3U5gjsTEkAAAAC/quantum-field-generator.gif" width="200"/>
+&nbsp;
+<img src="https://media1.tenor.com/m/1aejtj2SyOsAAAAC/spectral-vision.gif" width="200"/>
 
 <br/><br/>
 
