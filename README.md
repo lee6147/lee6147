@@ -93,12 +93,6 @@ me = RoboticsEngineer()
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 
-### Quantum Computing
-![Quantum](https://img.shields.io/badge/Quantum_Computing-06b6d4?style=for-the-badge&logo=atom&logoColor=white)
-![Silicon Qubit](https://img.shields.io/badge/Si_Spin_Qubit-a855f7?style=for-the-badge)
-![BQB](https://img.shields.io/badge/BQB_Architecture-6366f1?style=for-the-badge)
-![FD-SOI](https://img.shields.io/badge/22nm_FD--SOI-22d3ee?style=for-the-badge)
-
 ### AI-Powered Development
 ![Claude Code](https://img.shields.io/badge/Claude_Code-D97706?style=for-the-badge&logo=anthropic&logoColor=white)
 ![Claude API](https://img.shields.io/badge/Claude_API-B45309?style=for-the-badge&logo=anthropic&logoColor=white)
@@ -460,273 +454,7 @@ State Machine
 
 ---
 
-<!-- Project 3: Quantum BQB -->
-<div align="center">
-
-<!-- Quantum Section Header -->
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:06b6d4,50:a855f7,100:6366f1&height=70&text=%E2%9A%9B%EF%B8%8F%20Quantum%20BQB%20%E2%80%94%20Interactive%20Quantum%20Learning%20Platform&fontSize=22&fontColor=ffffff&fontAlignY=50" width="100%"/>
-
-<br/>
-
-<a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=16&duration=2500&pause=1000&color=22D3EE&center=true&vCenter=true&repeat=true&width=750&height=50&lines=%E2%9A%9B%EF%B8%8F+BQB+%3D+Buried+Quantum+Barrier;%F0%9F%94%AC+Si-28+%2B+P-31+Donor+Spin+Qubit+Array;%F0%9F%8E%AF+16%C3%9716+%E2%86%92+32%C3%9732+Scalable+Architecture;%F0%9F%A7%AC+22nm+FD-SOI+Foundry+Process" alt="Quantum Typing" />
-</a>
-
-<br/>
-
-
-![Platform](https://img.shields.io/badge/Platform-239KB_Single_File_React_App-06b6d4?style=for-the-badge)
-![Modules](https://img.shields.io/badge/Modules-4_Interactive_Guides-a855f7?style=for-the-badge)
-![Visualizations](https://img.shields.io/badge/Visualizations-7_Quantum_Concepts-6366f1?style=for-the-badge)
-
-![Si-28](https://img.shields.io/badge/Si--28-Isotopically_Purified-06b6d4?style=flat-square)
-![P-31](https://img.shields.io/badge/P--31-Donor_Spin_Qubit-a855f7?style=flat-square)
-![22nm](https://img.shields.io/badge/22nm-FD--SOI_Foundry-6366f1?style=flat-square)
-![Fidelity](https://img.shields.io/badge/F1q-≥_99.9%25-22d3ee?style=flat-square)
-
-</div>
-
-> **BQB(Buried Quantum Barrier) 기반 반도체 큐비트 대규모 어레이 기술을 인터랙티브 웹 플랫폼으로 구축한 연구 프로젝트**
-
----
-
-<details open>
-<summary><h4>⚛️ Quantum World Explorer — 7가지 핵심 개념 인터랙티브 시각화</h4></summary>
-
-<div align="center">
-
-<a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=20&duration=2500&pause=800&color=06B6D4&center=true&vCenter=true&multiline=true&repeat=true&width=700&height=80&lines=%E2%9A%9B%EF%B8%8F+Quantum+World+Explorer;%EC%96%91%EC%9E%90+%EC%84%B8%EA%B3%84%EB%A5%BC+%EC%9D%B8%ED%84%B0%EB%9E%99%ED%8B%B0%EB%B8%8C+%EC%8B%9C%EA%B0%81%ED%99%94%EB%A1%9C+%ED%83%90%ED%97%98%ED%95%98%EC%84%B8%EC%9A%94" alt="Typing SVG" />
-</a>
-
-<br/>
-
-<img src="https://user-images.githubusercontent.com/74038190/213910845-af37a709-8995-40d6-be59-724526e3c3d7.gif" width="300"/>
-
-<br/><br/>
-
-> *"양자역학을 이해했다고 생각한다면, 양자역학을 이해하지 못한 것이다."* — Richard Feynman
-
-</div>
-
-<br/>
-
-<div align="center">
-
-| 아이콘 | 개념 | 영문 | 설명 | 인터랙션 |
-|:---:|:---|:---|:---|:---:|
-| 🔧 | **왜 양자를 공부하는가?** | From Theory to Engineering | 양자역학 → BQB → 양자컴퓨터 여정 | 개념×기술 매핑 |
-| ◉ | **중첩** | Superposition | \|ψ⟩ = α\|↑⟩ + β\|↓⟩ | 양자 코인 클릭 |
-| ⫘ | **얽힘** | Entanglement | 두 입자의 즉각적 상관관계 | 입자쌍 측정 |
-| ⇥ | **터널링** | Quantum Tunneling | T ∝ e^(−2κL) 확률적 투과 | 입자 발사 시뮬 |
-| ◎ | **측정** | Measurement Problem | 파동함수 붕괴의 수수께끼 | 확률 구름 검출 |
-| ∿ | **파동-입자 이중성** | Wave-Particle Duality | λ = h/p 이중 슬릿 실험 | 관측기 ON/OFF |
-| Δ | **불확정성 원리** | Uncertainty Principle | Δx·Δp ≥ ℏ/2 | 슬라이더 조절 |
-
-</div>
-
-<br/>
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/◉-Superposition-06b6d4?style=flat-square"/>
-<img src="https://img.shields.io/badge/⫘-Entanglement-8b5cf6?style=flat-square"/>
-<img src="https://img.shields.io/badge/⇥-Tunneling-10b981?style=flat-square"/>
-<img src="https://img.shields.io/badge/◎-Measurement-ec4899?style=flat-square"/>
-<img src="https://img.shields.io/badge/∿-Duality-f59e0b?style=flat-square"/>
-<img src="https://img.shields.io/badge/Δ-Uncertainty-f43f5e?style=flat-square"/>
-
-</div>
-
-</details>
-
----
-
-<details open>
-<summary><h4>🔧 BQB 플랫폼 — From Theory to Engineering</h4></summary>
-
-<div align="center">
-
-<a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=18&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&repeat=true&width=600&height=50&lines=BQB+%3D+Barrier-defined+Qubit+in+Buried+template;22nm+FD-SOI+%C2%B7+31P+Donor+%C2%B7+4K+Cryogenic;N_phys+%E2%86%92+N_op+%E2%86%92+N_link+Pipeline" alt="Typing SVG" />
-</a>
-
-<br/>
-
-<img src="https://img.shields.io/badge/⚛️_Theory-Quantum_Physics-06b6d4?style=flat-square"/>
-<img src="https://img.shields.io/badge/→-000000?style=flat-square"/>
-<img src="https://img.shields.io/badge/🔬_Design-BQB_Platform-3fb950?style=flat-square"/>
-<img src="https://img.shields.io/badge/→-000000?style=flat-square"/>
-<img src="https://img.shields.io/badge/💻_Build-Quantum_Computer-58a6ff?style=flat-square"/>
-
-<br/><br/>
-
-```
- ┌─────────────┐      ┌─────────────┐      ┌─────────────┐
- │   N_phys    │ ───▶ │    N_op     │ ───▶ │   N_link    │
- │ 물리적 배열  │      │  운용 가능   │      │  얽힘 연결   │
- └─────────────┘      └─────────────┘      └─────────────┘
-```
-
-</div>
-
-<br/>
-
-**6개 양자 개념 × BQB 기술 매핑**
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/중첩_→_큐비트-06b6d4?style=flat-square"/>
-<img src="https://img.shields.io/badge/얽힘_→_게이트-8b5cf6?style=flat-square"/>
-<img src="https://img.shields.io/badge/터널링_→_공정-10b981?style=flat-square"/>
-<img src="https://img.shields.io/badge/측정_→_읽기-ec4899?style=flat-square"/>
-<img src="https://img.shields.io/badge/이중성_→_설계-f59e0b?style=flat-square"/>
-<img src="https://img.shields.io/badge/불확정성_→_한계-f43f5e?style=flat-square"/>
-
-</div>
-
-| 양자 개념 | BQB 기술 적용 | KPI 목표 |
-|:---|:---|:---|
-| **중첩** | 큐비트 상태 \|0⟩+\|1⟩ — 28Si 순도 + Triple-Wall 격리 | F1q ≥ 0.999 |
-| **얽힘** | 2-qubit 게이트 — J-coupling 교환 상호작용 | F2q ≥ 0.99, ≥16쌍 |
-| **터널링** | 이온 주입 + BQB-B 매립 장벽 투과 설계 | overlay ≤ 15nm |
-| **측정** | 단일 전자 읽기(SET/RF) 비파괴 검출 | 검출 충실도 ≥ 99% |
-| **이중성** | 물질파 기반 나노구조 게이트 설계 | FDM ≥ 5MHz 간격 |
-| **불확정성** | 디코히어런스 · DD 시퀀스 노이즈 억제 | T2 ≥ 1s (CPMG) |
-
-<br/>
-
-**4대 핵심 기술 스택 + 5개년 로드맵**
-
-<table>
-<tr>
-<td width="50%">
-
-```
-🛡️ Triple-Wall QBQ
-   STI moat + T3 실드웰 + BQB-B
-
-⚡ 77K DD-IC
-   22nm FD-SOI · O(√N) 스케일링
-
-❄️ Split-Stage 패키징
-   77K(제어) ↔ 4K(큐비트) 분리
-
-🔄 폐루프 수렴
-   Generate → Verify → Correct
-```
-
-</td>
-<td width="50%">
-
-```
-1차 '26  단일~소수    TRL 3→3+
-2차 '27  2×2 배열     TRL 3+→4
-3차 '28  4×4 배열     TRL 4
-4차 '29  8×8 배열     TRL 4→5-
-5차 '30  16×16 배열   TRL 5 ✅
-```
-
-```
-수율 거듭제곱: Y = p^N (N=256)
-  p=99.0% → Y= 7.6% ❌
-  p=99.5% → Y=27.7% ⚠️
-  p=99.9% → Y=77.4% ✅
-```
-
-</td>
-</tr>
-</table>
-
-</details>
-
----
-
-<div align="center">
-
-**🏆 Technical Achievements**
-
-<table>
-<tr>
-<td align="center" width="20%">
-
-### ⚛️
-**BQB Architecture**
-Triple-Wall QBQ
-Qubit Protection
-Si-28 + P-31
-
-</td>
-<td align="center" width="20%">
-
-### 📐
-**Yield Scaling**
-p^N² Law
-Overlay ≤ 15nm
-Closed-Loop QC
-
-</td>
-<td align="center" width="20%">
-
-### 🧊
-**DD-IC Control**
-77K Cryogenic
-√N Fan-out
-256 → 16 Lines
-
-</td>
-<td align="center" width="20%">
-
-### 🎓
-**Learning Platform**
-7 Visualizations
-3-Level Guides
-239KB React App
-
-</td>
-<td align="center" width="20%">
-
-### 🎯
-**Fidelity Target**
-F1q ≥ 99.9%
-F2q ≥ 99%
-T2 ≥ 1s
-
-</td>
-</tr>
-</table>
-
-<br/>
-
-**💡 Key Takeaways**
-
-</div>
-
-| | Topic | Insight |
-|:---:|:---:|:---|
-| ⚛️ | **Scalability** | 큐비트 수가 늘수록 수율이 지수적으로 떨어짐 — **p^N² law**에 기반한 공정 정밀도가 핵심 |
-| 🛡️ | **Triple-Wall** | 물리적·전기적·양자적 3중 격리 없이는 대규모 어레이에서 **crosstalk** 제어 불가 |
-| 🧊 | **Cryogenics** | 상온→77K→20mK 3단계 온도에서 **Fan-out √N** 압축이 배선 병목 해결의 열쇠 |
-| 🎓 | **Visualization** | 추상적 양자 개념을 **인터랙티브 웹 시각화**로 변환하여 학습 효과 극대화 |
-
-<div align="center">
-
-<br/>
-
-![Quantum](https://img.shields.io/badge/Quantum_Computing-Silicon_Spin_Qubit-06b6d4?style=flat-square)
-![Scale](https://img.shields.io/badge/Target-1024_Qubits-a855f7?style=flat-square)
-![Fidelity](https://img.shields.io/badge/Gate_Fidelity-99.9%25+-6366f1?style=flat-square)
-![Process](https://img.shields.io/badge/Foundry-22nm_FD--SOI-22d3ee?style=flat-square)
-
-<br/>
-
-[![Repo](https://img.shields.io/badge/View_Repository-Quantum__BQB-a855f7?style=for-the-badge&logo=github&logoColor=white)](https://github.com/lee6147/Undergraduate-research-student/tree/main/Quantum_BQB)
-[![Launcher](https://img.shields.io/badge/BQB_Launcher-239KB_Interactive_App-06b6d4?style=for-the-badge&logo=react&logoColor=white)](https://github.com/lee6147/Undergraduate-research-student/tree/main/Quantum_BQB)
-
-</div>
-
----
-<!-- Project 4: R&D Center -->
+<!-- Project 3: R&D Center -->
 <div align="center">
 
 ### R&D Center Establishment Strategy
@@ -1045,7 +773,7 @@ flowchart LR
 {
   "frames": [{
     "url": "file:///path/to/app.html",
-    "displayName": "BQB Guide",
+    "displayName": "App Guide",
     "forceIframe": false,
     "padding": 0
   }]
@@ -1125,7 +853,6 @@ flowchart TD
 | Project | Claude Code 역할 | 주요 활용 |
 |:---:|:---|:---|
 | **RoboCallee** | FMS C++ 코드 분석, README 생성 | 자율주행 아키텍처 문서화 |
-| **Quantum BQB** | 4개 인터랙티브 가이드 전체 생성 | JSX → Obsidian HTML 변환 |
 | **loc_bot** | Telegram Bot 전체 개발 | Claude Code로 Claude Code Bot 개발 |
 | **Profile README** | 1900줄+ 프로필 자동 생성 | Mermaid, LaTeX, ASCII Art |
 
@@ -1286,9 +1013,6 @@ SQLite 이력 저장
 | **AI / Vision** | OpenCV | ![](https://img.shields.io/badge/85%25-06b6d4?style=flat-square&label=&labelColor=1a1a2e) |
 | | OCR / Object Detection | ![](https://img.shields.io/badge/80%25-06b6d4?style=flat-square&label=&labelColor=1a1a2e) |
 | | Camera Calibration | ![](https://img.shields.io/badge/80%25-06b6d4?style=flat-square&label=&labelColor=1a1a2e) |
-| **Quantum** | BQB Architecture Design | ![](https://img.shields.io/badge/90%25-a855f7?style=flat-square&label=&labelColor=1a1a2e) |
-| | Quantum Mechanics Visualization | ![](https://img.shields.io/badge/85%25-a855f7?style=flat-square&label=&labelColor=1a1a2e) |
-| | Interactive Learning Platform | ![](https://img.shields.io/badge/90%25-06b6d4?style=flat-square&label=&labelColor=1a1a2e) |
 | **AI Dev Tools** | Claude Code | ![](https://img.shields.io/badge/95%25-D97706?style=flat-square&label=&labelColor=1a1a2e) |
 | | Claude API | ![](https://img.shields.io/badge/80%25-D97706?style=flat-square&label=&labelColor=1a1a2e) |
 | **Languages** | C++ | ![](https://img.shields.io/badge/85%25-22d3ee?style=flat-square&label=&labelColor=1a1a2e) |
@@ -1337,7 +1061,7 @@ SQLite 이력 저장
 
 ### Repositories
 
-[![Undergraduate Research](https://img.shields.io/badge/Undergraduate--research--student-Robotics_|_AI_|_Quantum-6366f1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/lee6147/Undergraduate-research-student)
+[![Undergraduate Research](https://img.shields.io/badge/Undergraduate--research--student-Robotics_|_AI-6366f1?style=for-the-badge&logo=github&logoColor=white)](https://github.com/lee6147/Undergraduate-research-student)
 
 </div>
 
